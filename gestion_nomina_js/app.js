@@ -1,7 +1,7 @@
 const user = JSON.parse(localStorage.getItem('login_success')) || false
 
 if (!user) {
-    window.location.href = 'gestion_nomina_js/vista/paginas/IniciarSesion.html'
+    window.location.href = '/gestion_nomina_js/vista/paginas/IniciarSesion.html'
 }
 
 

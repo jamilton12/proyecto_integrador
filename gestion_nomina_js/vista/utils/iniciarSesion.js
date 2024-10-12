@@ -1,4 +1,4 @@
-import { validarUsuario } from "../../modelo/usuario/iniciarSesion"
+import { validarUsuario } from "../../modelo/usuario/iniciarSesion.js"
 export function iniciarSesion() {
   let  $loginForm = document.querySelector('#login-form')
   let  $userName = document.querySelector('#userName')

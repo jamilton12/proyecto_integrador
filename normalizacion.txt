@@ -1,0 +1,39 @@
+nombreEmpleado, apellidosEmpleado, documentoEmpleado, edadEmpleado, paisEpleado,DepartamentoEmpleado
+municipioEmpleado, direccionEmpleado, numeroEmpleado, emailEmpleado, nombreFamiliar, apellidosFamiliar, parentescofamiliar, 
+numeroFamiliar, emailFamiliar, DocumentoFamiliar, contratoEmpleado, pagoxHora, pagoxHoraExtra, pagosExtras, fecha, horaEntrada
+horaSalida, promedioHorasPorHacerS, 
+
+EMPLEADOS {
+	documentoEmpleado, nombreEmpleado, apellidosEmpleado, edadEmpleado, paisEmpleado,DepartamentoEmpleado
+	municipioEmpleado, direccionEmpleado, numeroEmpleado, emailEmpleadom, numeroContrato
+}
+
+FAMILIARxEMPLEADOS {
+	documentoFamiliar, documentoEmpleado, parentescofamiliar
+}
+
+FAMILIAR {
+	documentoFamiliar, nombreFamiliar, apellidosFamiliar, numeroFamiliar, emailFamiliar,
+}
+
+CONTRATO_EMPLEADOS {
+	numeroContrato, tipoContrato , pagoxHora, pagoxHoraExtra, fechaInicio, fechaFin, Renovacion, auxTransporte, ARL, cajaCopensacion
+	bonificacionxDominical, primaServicios, dotacion
+}
+
+NOMINA { 
+	NumeroFacturacion, fechainicioNom, fechafinNom, 
+}
+
+REGISTRO_EMPLEADO {
+	documentoEmpleado, fecha, horaEntrada, horaSalida
+}
+
+EMPRESA {
+	NIT, nombreEmpresa, RUT, direccion, pais, departamento, telefono, 
+}
+
+
+
+
+

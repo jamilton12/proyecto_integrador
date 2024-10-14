@@ -1,16 +1,23 @@
 import { validarUsuario } from "../../modelo/usuario/iniciarSesion.js"
+import { INICIO, LOCATION } from "./const.js"
 export function iniciarSesion() {
-  let  $loginForm = document.querySelector('#login-form')
-  let  $userName = document.querySelector('#userName')
-  let  $password = document.querySelector('#password')
-
+  let $loginForm = document.querySelector('#login-form')
+  let $userName = document.querySelector('#userName')
+  let $password = document.querySelector('#password')
+  let $message = document.querySelector('.login-error-message')
 
   $loginForm.addEventListener('submit', (e) => {
     e.preventDefault()
     const userValue = $userName.value
     const passwordValue = $password.value
-    let user = validarUsuario()
-    console.log(user);
-    
+    let user = validarUsuario(userValue, passwordValue)
+    if (!user) {
+      $message.style.color = 'red'
+      $message.textContent = 'Usuario o Contraseña Incorrectos'
+      return
+    }
+
+    localStorage.setItem('login_success', JSON.stringify(user))
+    LOCATION.href = INICIO
   })
 }

@@ -78,6 +78,13 @@ a {
   }
 }
 
+.login-error-message {
+  
+  color: transparent;
+  font-size: 12px;
+  font-weight: 600;
+}
+
 /* Header */
 .header {
   display: flex;

@@ -1,46 +1,32 @@
 const user = JSON.parse(localStorage.getItem('login_success')) || false
 
-const location = window.location
-
-const INICIOSESION = '/gestion_nomina_js/vista/paginas/IniciarSesion.html'
-
-if (!user && location.pathname !== INICIOSESION) {
-    location.href = INICIOSESION
-}
-
-
-//Login 
-
-let  $loginForm = document.querySelector('#login-form')
-let  $userName = document.querySelector('#userName')
-let  $password = document.querySelector('#password')
-
-
-//header 
-let $headerBtonModal = document.querySelector('.header-modal-button')
-let $headerModal = document.querySelector('.header-modal-container-menu')
-let $closeModal = document.querySelector('.header-modal-container-menu i')
-let $modalUsuario = document.querySelector('.header-usuario-menu')
-let $modalUsuariobton = document.querySelector('.header-usuario-icon')
-
-//marcar 
-let $headerbtonMarcar = document.querySelector('#header-button-marcar')
-let $btonMarcar = document.querySelector('.marcar-button')
-
-
 //imports
-import {headerModalMenu, headerModalUsusario } from './vista/utils/Header.js'
-import {marcarIngreso} from './vista/utils/Marcar.js'
-import {iniciarSesion} from './vista/utils/iniciarSesion.js'
+import { INICIOSESION, LOCATION, INICIO, INDEX } from './vista/utils/const.js'
+import { headerModalMenu, headerModalUsusario, cerrarSesion } from './vista/utils/Header.js'
+import { marcarIngreso, cambiarHeader } from './vista/utils/Marcar.js'
+import { iniciarSesion } from './vista/utils/iniciarSesion.js'
 
+if (!user && LOCATION.pathname !== INICIOSESION) {
+    LOCATION.href = INICIOSESION
+}else if (user && LOCATION.pathname === INDEX) {
+    LOCATION.href = INICIO
+}
 
 //funciones
 
-headerModalMenu($headerBtonModal,$headerModal,$closeModal);
-headerModalUsusario($modalUsuario,$modalUsuariobton);
+if (LOCATION.pathname != INICIOSESION) {
+    //header
+    headerModalMenu();
+    headerModalUsusario();
 
-
-marcarIngreso($btonMarcar, $headerbtonMarcar)
-
-
-iniciarSesion()
+    //marcar
+    let onMarca = true
+    let primeraMarca = false
+    marcarIngreso(onMarca, primeraMarca)
+    cambiarHeader(onMarca, primeraMarca)   
+    
+    //cerrar sesion
+    cerrarSesion()
+}else{
+    iniciarSesion()
+}

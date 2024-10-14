@@ -1,31 +1,42 @@
 import { LOCATION, MARCAR } from "./const.js";
-//TODO poner variables en el local storage 
-//TODO o buscar manera que no se reincien con cambiar de pagina
-export function marcarIngreso(on, primeraMarca) {
+import { marcarSalida, marcarIngreso } from "../../modelo/marcar/registroInOut.js";
+const user = JSON.parse(localStorage.getItem('login_success'))
+
+export function marcar() {
 
   if (LOCATION.pathname === MARCAR) {  
     let $btonMarcar = document.querySelector('.marcar-button')
-    $btonMarcar.innerText = 'Marcar Ingreso'
+    let on = true
 
     $btonMarcar.addEventListener('click', () => {  
       if (on) {
-        primeraMarca = true
-        cambiarHeader(on,primeraMarca)
+        marcarIngreso()
+        cambiarHeader()
         $btonMarcar.innerText = 'Marcar Salida'
         on = false
       }else {
+        marcarSalida()
+        cambiarHeader()
         $btonMarcar.innerText = 'Marcar Ingreso'
-          cambiarHeader(on, primeraMarca)
         on = true
       }
-      
     })
   }
 }
 
-export function cambiarHeader(on, primeraMarca) {
+export function cambiarHeader() {
   let $headerbtonMarcar = document.querySelector('#header-button-marcar')
-  if (on && primeraMarca) {
+  let registros = JSON.parse(localStorage.getItem('registros')) 
+
+  if (registros === null) {
+    return
+  }
+
+  let registroActual = registros.length - 1
+
+  let on = registros[registroActual].esta_Activa  
+
+  if (on) {
     $headerbtonMarcar.innerText = 'Marcar Salida'
   } else {
     $headerbtonMarcar.innerText = 'Marcar Ingreso'

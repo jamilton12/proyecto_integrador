@@ -1,5 +1,5 @@
 import { LOCATION, INICIO_SESION } from "./const.js";
-
+//TODO hacer header se genere al entrar a la pagina 
 export function headerModalMenu() {
   let $headerBtonModal = document.querySelector('.header-modal-button')
   let $headerModal = document.querySelector('.header-modal-container-menu')

@@ -1,0 +1,10 @@
+{
+  "documento_Usuario" : "123456789", 
+  "esta_Activa" : false,
+  "registro" : { 
+    "fecha_ingreso" : "2022-12-01",
+    "hora_ingreso" : "10:00:00",
+    "fecha_salida" : "2022-12-01",
+    "hora_salida" : "12:00:00"
+  }
+}

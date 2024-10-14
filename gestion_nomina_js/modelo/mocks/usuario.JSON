@@ -2,7 +2,6 @@
   "nombre"  : "Jamilton",
   "clave"   : "123456",
   "cedula"  : "123456789",
-  "usuario" : "jamilton123",
   "email"   : "jamilton.prog@gmail.com",
   "rol"     : "admin",
   "cargo"   : "Programador",

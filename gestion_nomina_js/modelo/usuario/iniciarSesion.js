@@ -8,7 +8,7 @@ export function validarUsuario($usuario, $clave) {
     Users.push(usuario)
   }
 
-  const usuarioValido = Users.find(user => user.usuario === $usuario && user.clave === $clave)
+  const usuarioValido = Users.find(user => user.cedula === $usuario && user.clave === $clave)
 
   if (!usuarioValido) {
     return false

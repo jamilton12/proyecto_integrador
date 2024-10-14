@@ -1,4 +1,4 @@
-import { LOCATION, INICIOSESION } from "./const.js";
+import { LOCATION, INICIO_SESION } from "./const.js";
 
 export function headerModalMenu() {
   let $headerBtonModal = document.querySelector('.header-modal-button')
@@ -37,6 +37,6 @@ export function cerrarSesion() {
   let $cerrarBton = document.querySelector('#cerrar-sesion')
   $cerrarBton.addEventListener('click', () => {
     localStorage.removeItem('login_success')
-    LOCATION.href = INICIOSESION
+    LOCATION.href = INICIO_SESION
   })
 }

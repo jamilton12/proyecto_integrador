@@ -46,6 +46,12 @@ export function verEmpleados() {
   }
 }
 
+export function nombreUsuario() {
+  const user = JSON.parse(localStorage.getItem('login_success'))
+  let $nombreUsuario = document.querySelector('#header-usuario-nombre')
+  $nombreUsuario.innerText = user.nombre
+}
+
 export function cerrarSesion() {
   let $cerrarBton = document.querySelector('#cerrar-sesion')
   $cerrarBton.addEventListener('click', () => {

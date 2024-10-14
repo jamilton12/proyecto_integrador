@@ -33,6 +33,19 @@ export function headerModalUsusario() {
   })
 }
 
+export function verEmpleados() {
+  const user = JSON.parse(localStorage.getItem('login_success'))
+  let $verEmpleados = document.querySelector('#ver-empleados')
+
+  if (user.rol != 'admin') {
+    console.log(user.rol);
+    if (user.rol ==='jefe') {
+      return
+    }
+    $verEmpleados.style.display = 'none'
+  }
+}
+
 export function cerrarSesion() {
   let $cerrarBton = document.querySelector('#cerrar-sesion')
   $cerrarBton.addEventListener('click', () => {

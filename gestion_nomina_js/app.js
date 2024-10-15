@@ -1,9 +1,9 @@
 const user = JSON.parse(localStorage.getItem('login_success')) || false
 
 //imports
-import { INICIO_SESION, LOCATION, INICIO, INDEX } from './vista/utils/const.js'
+import { INICIO_SESION, LOCATION, INICIO, INDEX, MARCAR } from './vista/utils/const.js'
 import { headerModalMenu, headerModalUsusario, cerrarSesion, verEmpleados, nombreUsuario } from './vista/utils/Header.js'
-import { marcar, cambiarHeader } from './vista/utils/Marcar.js'
+import { marcar, cambiarHeader, cambiarBotonMarcar } from './vista/utils/Marcar.js'
 import { iniciarSesion } from './vista/utils/iniciarSesion.js'
 import { recetRegistros } from './modelo/marcar/registroInOut.js'
 
@@ -30,6 +30,10 @@ if (LOCATION.pathname != INICIO_SESION) {
     cerrarSesion()
 }else{
     iniciarSesion()
+}
+
+if (LOCATION.pathname === MARCAR) {
+    cambiarBotonMarcar()
 }
 
 // recetRegistros()

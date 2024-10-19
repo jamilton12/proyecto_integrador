@@ -1,18 +1,24 @@
 import { LOCATION, PATH } from "./const.js";
+import { cambiarBotonHeader } from "./Marcar.js";
 
 export function Header() {
   const user = JSON.parse(localStorage.getItem('login_success'))
   const { nombre , rol } = user
+  const isAdmin = rol === 'admin'
+  const isJefe = rol === 'jefe'
+
+
   const $body = document.querySelector('body')
   let $header = document.createElement('header')
   $header.classList.add('header')
+
   $header.innerHTML = `
       <section class="header-section-left">
-      <a class="header-button ${LOCATION.pathname === PATH.INICIO ? 'active' : ''}" href="${PATH.INICIO}">Inicio</a>
-      <a class="header-button ${LOCATION.pathname === PATH.MARCAR ? 'active' : ''}" id="header-button-marcar" href="${PATH.MARCAR}">Marcar Ingreso</a>
-      ${ rol === 'admin' ?  `<a class="header-button ${LOCATION.pathname === PATH.NOMINA ? 'active' : ''}"href="${PATH.NOMINA}">Nomina</a>` : ''}  
-      ${ rol === 'jefe' ?  `<a class="header-button ${LOCATION.pathname === PATH.NOMINA ? 'active' : ''} "href="${PATH.NOMINA}">Nomina</a>` : ''}  
-      <a class="header-button ${LOCATION.pathname === PATH.EMPLEADOS ? 'active' : ''}" id="ver-empleados" href="${PATH.EMPLEADOS}">Empleados</a>  
+      <a class="header-button ${activeForPath(PATH.INICIO)}" href="${PATH.INICIO}">Inicio</a>
+      <a class="header-button ${activeForPath(PATH.MARCAR)}" id="header-button-marcar" href="${PATH.MARCAR}">Marcar Ingreso</a>
+      <a class="header-button ${activeForPath(PATH.NOMINA)}" id="ver-empleados" href="${PATH.NOMINA}">Nomina</a>
+      ${ isAdmin ?  `<a class="header-button ${activeForPath(PATH.EMPLEADOS)}"href="${PATH.EMPLEADOS}">Empleados</a>` : ''}
+      ${ isJefe ?  `<a class="header-button ${activeForPath(PATH.EMPLEADOS)} "href="${PATH.EMPLEADOS}">Empleados</a>` : ''}
     </section>
     
     <section class="header-modal">
@@ -22,11 +28,11 @@ export function Header() {
       <div class="header-modal-container-menu">
         <nav class="header-modal-menu">
           <i class="fi fi-rr-cross"></i>
-          <a class="header-button ${LOCATION.pathname === PATH.INICIO ? 'active' : ''}" href="${PATH.INICIO}">Inicio</a>
-          <a class="header-button ${LOCATION.pathname === PATH.MARCAR ? 'active' : ''}" id="header-button-marcar" href="${PATH.MARCAR}">Marcar Ingreso</a>
-          ${ rol === 'admin' ?  `<a class="header-button ${LOCATION.pathname === PATH.NOMINA ? 'active' : ''}"href="${PATH.NOMINA}">Nomina</a>` : ''}  
-          ${ rol === 'jefe' ?  `<a class="header-button ${LOCATION.pathname === PATH.NOMINA ? 'active' : ''} "href="${PATH.NOMINA}">Nomina</a>` : ''}  
-          <a class="header-button ${LOCATION.pathname === PATH.EMPLEADOS ? 'active' : ''}" id="ver-empleados" href="${PATH.EMPLEADOS}">Empleados</a>
+          <a class="header-button ${activeForPath(PATH.INICIO)}" href="${PATH.INICIO}">Inicio</a>
+          <a class="header-button ${activeForPath(PATH.MARCAR)}" id="header-button-marcar" href="${PATH.MARCAR}">Marcar Ingreso</a>
+          <a class="header-button ${activeForPath(PATH.NOMINA)}" id="ver-empleados" href="${PATH.NOMINA}">Nomina</a>
+          ${ isAdmin ?  `<a class="header-button ${activeForPath(PATH.EMPLEADOS)}"href="${PATH.EMPLEADOS}">Empleados</a>` : ''}
+          ${ isJefe ?  `<a class="header-button ${activeForPath(PATH.EMPLEADOS)} "href="${PATH.EMPLEADOS}">Empleados</a>` : ''}
         </nav>
       </div>
     </section>
@@ -36,9 +42,9 @@ export function Header() {
           <span id ="header-usuario-nombre">${nombre}</span>
         </a>
         <span class="header-usuario-icon ">
-          <i class="fi fi-rr-angle-small-down "></i>
+          <i class="fi fi-rr-angle-small-down"></i>
         </span>
-        <nav class="header-usuario-menu ">
+        <nav class="header-usuario-menu">
           <ul>
             <li>
               <span id ="cerrar-sesion">
@@ -52,13 +58,21 @@ export function Header() {
         <img src="../assets/foto_ususario.jpg" alt="Foto del Empleado">
       </div>
     </section>
-  
   `
   $body.insertAdjacentHTML('afterbegin', $header.outerHTML)
 
+  headerModalMenu()
+  headerModalUsusario()
+  cerrarSesion()
+  cambiarBotonHeader()
 }
 
-export function headerModalMenu() {
+
+function activeForPath(PATH) {
+  return LOCATION.pathname === PATH ? 'active' : ''
+}
+
+function headerModalMenu() {
   let $headerBtonModal = document.querySelector('.header-modal-button')
   let $headerModal = document.querySelector('.header-modal-container-menu')
   let $closeModal = document.querySelector('.header-modal-container-menu i')
@@ -72,12 +86,12 @@ export function headerModalMenu() {
   });
 }
 
-export function headerModalUsusario() {
+function headerModalUsusario() {
   let $modalUsuario = document.querySelector('.header-usuario-menu')
-  let $modalUsuariobton = document.querySelector('.header-usuario-icon')
-
-  let on = false;
-
+  let $modalUsuariobton = document.querySelector('.header-usuario-icon') ?? null 
+  if ($modalUsuariobton === null) return
+  
+  let on = false
   $modalUsuariobton.addEventListener('click', () => {
     if (on) {
       $modalUsuario.classList.remove('active');
@@ -86,12 +100,12 @@ export function headerModalUsusario() {
     } else {
       $modalUsuario.classList.add('active');
       $modalUsuariobton.innerHTML = '<i class="fi fi-rr-angle-small-up"></i>';
-      on = true;
+      on = true
     }
   })
 }
 
-export function cerrarSesion() {
+function cerrarSesion() {
   let $cerrarBton = document.querySelector('#cerrar-sesion')
   $cerrarBton.addEventListener('click', () => {
     localStorage.removeItem('login_success')

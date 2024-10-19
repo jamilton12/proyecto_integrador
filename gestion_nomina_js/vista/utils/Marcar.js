@@ -2,6 +2,13 @@ import { LOCATION, PATH } from "./const.js";
 import { marcarSalida, marcarIngreso } from "../../modelo/marcar/registroInOut.js";
 const user = JSON.parse(localStorage.getItem('login_success'))
 
+export function Marcar() {
+  marcar()
+  if (LOCATION.pathname === PATH.MARCAR) {
+    cambiarBotonMarcar()
+  }    
+}
+
 export function marcar() {
   let $btonMarcar = document.querySelector('.marcar-button')
   if (LOCATION.pathname === PATH.MARCAR) {  
@@ -15,12 +22,12 @@ export function marcar() {
     $btonMarcar.addEventListener('click', () => {  
       if (on) {
         marcarIngreso()
-        cambiarHeader()
+        cambiarBotonHeader()
         cambiarBotonMarcar()
         on = false
       }else {
         marcarSalida()
-        cambiarHeader()
+        cambiarBotonHeader()
         cambiarBotonMarcar()
         on = true
       }
@@ -29,7 +36,7 @@ export function marcar() {
 }
 
 
-export function cambiarHeader() {
+export function cambiarBotonHeader() {
   let $headerbtonMarcar = document.querySelector('#header-button-marcar')
 
   let registros = JSON.parse(localStorage.getItem('registros')) 

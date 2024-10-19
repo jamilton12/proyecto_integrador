@@ -1,10 +1,16 @@
 import registros from '../../modelo/mocks/registros.JSON' with { type: "json" }
-
+import { LOCATION, PATH } from "./const.js"
 let registro = JSON.parse(localStorage.getItem('registros')) || [registros]
 
 if (!(registro.includes(registros))) {
   registro.push(registros)
 } 
+
+export function Nomina() {
+  
+  if (LOCATION.pathname === PATH.NOMINA) return CrearTabla()
+}
+
 
 export function CrearTabla() {
   let $tableBody = document.querySelector('.nomina-table')
@@ -36,22 +42,3 @@ export function CrearTabla() {
     <td class="nomina-table-cell"></td>
   `
 }
-
-
-{/* <tbody>
-<tr class="nomina-table-row">
-<td class="nomina-table-cell">1</td>
-<td class="nomina-table-cell">01/01/2022</td>
-<td class="nomina-table-cell">00:00</td>
-<td class="nomina-table-cell">00:00</td>
-<td class="nomina-table-cell">10</td>
-</tr>
-
-</tbody>
-<tfoot class="nomina-table-head">
-<tr class="nomina-table-row">
-<th class="nomina-table-cell">Nomina actual</th>
-<td class="nomina-table-cell">1500000</td>
-<th class="nomina-table-cell">Total Horas</th>
-<td class="nomina-table-cell">47</td>
-</tr> */}

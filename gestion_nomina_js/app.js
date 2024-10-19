@@ -2,7 +2,7 @@ const user = JSON.parse(localStorage.getItem('login_success')) || false
 
 //imports
 import { LOCATION, PATH } from './vista/utils/const.js'
-import { headerModalMenu, headerModalUsusario, cerrarSesion, verEmpleados, nombreUsuario } from './vista/utils/Header.js'
+import { Header,headerModalMenu, headerModalUsusario, cerrarSesion/* , verEmpleados, nombreUsuario */ } from './vista/utils/Header.js'
 import { marcar, cambiarHeader, cambiarBotonMarcar } from './vista/utils/Marcar.js'
 import { iniciarSesion } from './vista/utils/iniciarSesion.js'
 import { CrearTabla } from './vista/utils/Nomina.js'
@@ -18,10 +18,11 @@ if (!user && LOCATION.pathname !== PATH.INICIO_SESION) {
 
 if (LOCATION.pathname != PATH.INICIO_SESION) {
     //header
+    Header()
     headerModalMenu()
     headerModalUsusario()
-    verEmpleados()
-    nombreUsuario()
+    // verEmpleados()
+    // nombreUsuario()
 
     //marcar
     marcar()

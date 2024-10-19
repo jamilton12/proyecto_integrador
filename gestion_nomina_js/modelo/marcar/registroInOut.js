@@ -23,12 +23,11 @@ export function marcarIngreso() {
 export function marcarSalida() {
   let registros = JSON.parse(localStorage.getItem('registros')) || []
   let registroActual = registros.length - 1
-  const {registro : {fecha_salida, hora_salida}, esta_Activa} = registros[registroActual]
+  registros[registroActual].registro.fecha_salida = fechaActual
+  registros[registroActual].registro.hora_salida = horaActual
+  registros[registroActual].esta_Activa = false
 
-  fecha_salida = fechaActual
-  hora_salida = horaActual
-  esta_Activa = false
-
+  console.log(registros);
   localStorage.setItem('registros', JSON.stringify(registros))
 }
 

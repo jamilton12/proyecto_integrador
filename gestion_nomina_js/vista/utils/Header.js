@@ -1,5 +1,63 @@
 import { LOCATION, PATH } from "./const.js";
-//TODO hacer header se genere al entrar a la pagina 
+
+export function Header() {
+  const user = JSON.parse(localStorage.getItem('login_success'))
+  const { nombre , rol } = user
+  const $body = document.querySelector('body')
+  let $header = document.createElement('header')
+  $header.classList.add('header')
+  $header.innerHTML = `
+      <section class="header-section-left">
+      <a class="header-button ${LOCATION.pathname === PATH.INICIO ? 'active' : ''}" href="${PATH.INICIO}">Inicio</a>
+      <a class="header-button ${LOCATION.pathname === PATH.MARCAR ? 'active' : ''}" id="header-button-marcar" href="${PATH.MARCAR}">Marcar Ingreso</a>
+      ${ rol === 'admin' ?  `<a class="header-button ${LOCATION.pathname === PATH.NOMINA ? 'active' : ''}"href="${PATH.NOMINA}">Nomina</a>` : ''}  
+      ${ rol === 'jefe' ?  `<a class="header-button ${LOCATION.pathname === PATH.NOMINA ? 'active' : ''} "href="${PATH.NOMINA}">Nomina</a>` : ''}  
+      <a class="header-button ${LOCATION.pathname === PATH.EMPLEADOS ? 'active' : ''}" id="ver-empleados" href="${PATH.EMPLEADOS}">Empleados</a>  
+    </section>
+    
+    <section class="header-modal">
+      <div class="header-modal-button">
+        <i class="fi fi-rr-menu-burger"></i>
+      </div>
+      <div class="header-modal-container-menu">
+        <nav class="header-modal-menu">
+          <i class="fi fi-rr-cross"></i>
+          <a class="header-button ${LOCATION.pathname === PATH.INICIO ? 'active' : ''}" href="${PATH.INICIO}">Inicio</a>
+          <a class="header-button ${LOCATION.pathname === PATH.MARCAR ? 'active' : ''}" id="header-button-marcar" href="${PATH.MARCAR}">Marcar Ingreso</a>
+          ${ rol === 'admin' ?  `<a class="header-button ${LOCATION.pathname === PATH.NOMINA ? 'active' : ''}"href="${PATH.NOMINA}">Nomina</a>` : ''}  
+          ${ rol === 'jefe' ?  `<a class="header-button ${LOCATION.pathname === PATH.NOMINA ? 'active' : ''} "href="${PATH.NOMINA}">Nomina</a>` : ''}  
+          <a class="header-button ${LOCATION.pathname === PATH.EMPLEADOS ? 'active' : ''}" id="ver-empleados" href="${PATH.EMPLEADOS}">Empleados</a>
+        </nav>
+      </div>
+    </section>
+    <section class="header-section-right">
+      <div class="header-usuario-container">
+        <a class="header-usuario" href="./Usuario.html">
+          <span id ="header-usuario-nombre">${nombre}</span>
+        </a>
+        <span class="header-usuario-icon ">
+          <i class="fi fi-rr-angle-small-down "></i>
+        </span>
+        <nav class="header-usuario-menu ">
+          <ul>
+            <li>
+              <span id ="cerrar-sesion">
+                Cerrar Sesión
+              </span>
+            </li>
+          </ul>
+        </nav>
+      </div>
+      <div class="header-foto">
+        <img src="../assets/foto_ususario.jpg" alt="Foto del Empleado">
+      </div>
+    </section>
+  
+  `
+  $body.insertAdjacentHTML('afterbegin', $header.outerHTML)
+
+}
+
 export function headerModalMenu() {
   let $headerBtonModal = document.querySelector('.header-modal-button')
   let $headerModal = document.querySelector('.header-modal-container-menu')
@@ -31,25 +89,6 @@ export function headerModalUsusario() {
       on = true;
     }
   })
-}
-
-export function verEmpleados() {
-  const user = JSON.parse(localStorage.getItem('login_success'))
-  let $verEmpleados = document.querySelector('#ver-empleados')
-
-  if (user.rol != 'admin') {
-    console.log(user.rol);
-    if (user.rol ==='jefe') {
-      return
-    }
-    $verEmpleados.style.display = 'none'
-  }
-}
-
-export function nombreUsuario() {
-  const user = JSON.parse(localStorage.getItem('login_success'))
-  let $nombreUsuario = document.querySelector('#header-usuario-nombre')
-  $nombreUsuario.innerText = user.nombre
 }
 
 export function cerrarSesion() {

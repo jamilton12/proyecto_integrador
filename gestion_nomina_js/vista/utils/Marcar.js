@@ -1,10 +1,10 @@
-import { LOCATION, MARCAR } from "./const.js";
+import { LOCATION, PATH } from "./const.js";
 import { marcarSalida, marcarIngreso } from "../../modelo/marcar/registroInOut.js";
 const user = JSON.parse(localStorage.getItem('login_success'))
 
 export function marcar() {
   let $btonMarcar = document.querySelector('.marcar-button')
-  if (LOCATION.pathname === MARCAR) {  
+  if (LOCATION.pathname === PATH.MARCAR) {  
     let registros = JSON.parse(localStorage.getItem('registros'))
     let on =true
     if (registros != null) { 

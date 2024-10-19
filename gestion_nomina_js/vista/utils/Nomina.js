@@ -11,14 +11,16 @@ export function CrearTabla() {
 
   registro.forEach((registro) => {
     let $tr = document.createElement('tr')
+    const {registro : {fecha_ingreso, hora_ingreso, fecha_salida, hora_salida}, documento_Usuario} = registro
+
     $tr.className = 'nomina-table-row'
     $tableBody.appendChild($tr)
     $tr.innerHTML = `
-    <td class="nomina-table-cell">${registro.documento_Usuario}</td>
-    <td class="nomina-table-cell">${registro.registro.fecha_ingreso}</td>
-    <td class="nomina-table-cell">${registro.registro.hora_ingreso}</td>
-    <td class="nomina-table-cell">${ registro.registro.fecha_salida === '' ? '/' : registro.registro.fecha_salida}</td>
-    <td class="nomina-table-cell">${registro.registro.hora_salida === '' ? '/' : registro.registro.hora_salida}</td>
+    <td class="nomina-table-cell">${documento_Usuario}</td>
+    <td class="nomina-table-cell">${fecha_ingreso}</td>
+    <td class="nomina-table-cell">${hora_ingreso}</td>
+    <td class="nomina-table-cell">${fecha_salida === '' ? '/' : fecha_salida}</td>
+    <td class="nomina-table-cell">${hora_salida === '' ? '/' : hora_salida}</td>
     <td class="nomina-table-cell"></td> 
     `
   })//TODO añadir diferencia de horas

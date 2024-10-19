@@ -1,4 +1,4 @@
-import { LOCATION, INICIO_SESION } from "./const.js";
+import { LOCATION, PATH } from "./const.js";
 //TODO hacer header se genere al entrar a la pagina 
 export function headerModalMenu() {
   let $headerBtonModal = document.querySelector('.header-modal-button')
@@ -56,6 +56,6 @@ export function cerrarSesion() {
   let $cerrarBton = document.querySelector('#cerrar-sesion')
   $cerrarBton.addEventListener('click', () => {
     localStorage.removeItem('login_success')
-    LOCATION.href = INICIO_SESION
+    LOCATION.href = PATH.INICIO_SESION
   })
 }

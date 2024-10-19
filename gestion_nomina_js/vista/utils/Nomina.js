@@ -1,9 +1,11 @@
-import registros from '../../modelo/mocks/registros.JSON' with { type: "json" }
+import registrosJson from '../../modelo/mocks/registros.JSON' with { type: "json" }
 import { LOCATION, PATH } from "./const.js"
-let registro = JSON.parse(localStorage.getItem('registros')) || [registros]
+import { calcularDiferencia, calcularNomina } from '../../modelo/marcar/calcualarNomina.js'
 
-if (!(registro.includes(registros))) {
-  registro.push(registros)
+let registros = JSON.parse(localStorage.getItem('registros')) || registrosJson
+
+if (!(registros.includes(registrosJson))) {
+  registros.concat(registrosJson)
 } 
 
 export function Nomina() {
@@ -14,8 +16,9 @@ export function Nomina() {
 
 export function CrearTabla() {
   let $tableBody = document.querySelector('.nomina-table')
+  const { nomina, totalHoras } = calcularNomina()
 
-  registro.forEach((registro) => {
+  registros.forEach((registro) => {
     let $tr = document.createElement('tr')
     const {registro : {fecha_ingreso, hora_ingreso, fecha_salida, hora_salida}, documento_Usuario} = registro
 
@@ -27,9 +30,9 @@ export function CrearTabla() {
     <td class="nomina-table-cell">${hora_ingreso}</td>
     <td class="nomina-table-cell">${fecha_salida === '' ? '/' : fecha_salida}</td>
     <td class="nomina-table-cell">${hora_salida === '' ? '/' : hora_salida}</td>
-    <td class="nomina-table-cell"></td> 
+    <td class="nomina-table-cell">${calcularDiferencia(registro)}</td> 
     `
-  })//TODO añadir diferencia de horas
+  })
 
   let $trFoot = document.createElement('tbody')
   $trFoot.className = 'nomina-table-head'
@@ -37,8 +40,8 @@ export function CrearTabla() {
   $trFoot.innerHTML = `
     <tr class="nomina-table-row">
     <th class="nomina-table-cell">Nomina actual</th>
-    <td class="nomina-table-cell"></td>
+    <td class="nomina-table-cell">${nomina}</td>
     <th class="nomina-table-cell">Total Horas</th>
-    <td class="nomina-table-cell"></td>
+    <td class="nomina-table-cell">${totalHoras}</td>
   `
 }

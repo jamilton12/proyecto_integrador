@@ -1,6 +1,5 @@
 import { LOCATION, PATH } from "./const.js";
 import { marcarSalida, marcarIngreso } from "../../modelo/marcar/registroInOut.js";
-const user = JSON.parse(localStorage.getItem('login_success'))
 
 export function Marcar() {
   marcar()

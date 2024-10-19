@@ -1,7 +1,7 @@
 const user = JSON.parse(localStorage.getItem('login_success'))
 const fecha = new Date()
 let fechaActual = fecha.toLocaleDateString('es-CO', {year:'numeric', month:'short', day:'numeric'} )
-let horaActual = fecha.toLocaleTimeString('es-CO')
+let horaActual = fecha.toLocaleTimeString('es-CO', {hour:'numeric', minute:'numeric', second:'numeric', hour12: false})
 
 export function marcarIngreso() {
   let registros = JSON.parse(localStorage.getItem('registros')) || []

@@ -1,9 +1,12 @@
-{
-  "nombre"  : "Jamilton",
-  "clave"   : "123456",
-  "cedula"  : "123456789",
-  "email"   : "jamilton.prog@gmail.com",
-  "rol"     : "admin",
-  "cargo"   : "Programador",
-  "estado"  : "Activo"
-}
+[
+  {
+    "nombre"  : "Jamilton",
+    "clave"   : "123456",
+    "cedula"  : "123456789",
+    "email"   : "jamilton.prog@gmail.com",
+    "rol"     : "admin",
+    "cargo"   : "Programador",
+    "estado"  : "Activo",
+    "pago"    : 5000
+  }
+]

@@ -16,24 +16,19 @@ FAMILIAR {
 	documentoFamiliar, nombreFamiliar, apellidosFamiliar, numeroFamiliar, emailFamiliar,
 }
 
-CONTRATO_EMPLEADOS {
-	numeroContrato, tipoContrato , pagoxHora, pagoxHoraExtra, fechaInicio, fechaFin, Renovacion, auxTransporte, ARL, cajaCopensacion
-	bonificacionxDominical, primaServicios, dotacion
+CONTRATO_EMPLEADOS {	numeroContrato, tipoContrato , pagoxHora, fechaInicio, fechaFin, Renovacion, EPS, ARL, activo
+	cajaCopensacion
+}
+
+PRESTACIONES {
+	documentoEmpleado, numeroRegistro, tipoPAgo, FechaPago, valor 
 }
 
 NOMINA { 
-	NumeroFacturacion, fechainicioNom, fechafinNom, 
+	numComprobante, fechainicioNom, fechafinNom, documentoEmpleado, horasRegulares, 
+	horasRegularesNocturnas, horasRegularesDominicales, extrasRegulares, extrasNoctunar, extrasDominicales, subsidioTransporte, 
 }
 
 REGISTRO_EMPLEADO {
-	documentoEmpleado, fecha, horaEntrada, horaSalida
+	id_registro, documentoEmpleado, fechaIngreso, horaEntrada, horaSalida, FechaSalida
 }
-
-EMPRESA {
-	NIT, nombreEmpresa, RUT, direccion, pais, departamento, telefono, 
-}
-
-
-
-
-

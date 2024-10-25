@@ -1,5 +1,13 @@
 /* @import url('https://cdn-uicons.flaticon.com/2.6.0/uicons-regular-rounded/css/uicons-regular-rounded.css'); */
-
+:root {
+  --main-color: #4E4FEB;
+  --secondary-color: #068FFF;
+  --white: #EEEEEE;
+  --black: #000000;
+  --main-opacity: #4e4eeb3f;
+  --secondary-opacity: #068fff50;
+  --main-gradient: linear-gradient(90deg, rgba(78, 78, 235, 0.637) 0%, rgba(0, 213, 255, 0.39) 100%);
+}
 * {
   padding: 0;
   margin: 0;
@@ -9,13 +17,13 @@
 }
 
 body {
-  background-color: #EEEEEE;
+  background-color: var(--white);
   display: flex;
   flex-wrap: wrap;
 }
 a {
   text-decoration: none;
-  color: black;
+  color: var(--black);
 }
 
 /* Login */
@@ -29,10 +37,11 @@ a {
 
 .login-section {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: row;
-  flex-wrap: wrap;
+  flex-direction: column;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+  background: var(--main-gradient);
 }
 
 .login-section form {
@@ -41,14 +50,13 @@ a {
   justify-content: center;
   align-items: center;
   gap: 20px;
-  padding: 20px;
-  border-radius: 10px;
-  background-color: #068fff50;
-  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+  /* background-color: var(--secondary-opacity); */
 }
 
-.login-section form h2 {
+.login-section h2 {
   text-align: center;
+  color: var(--white);
+  font-size: 32px;
 }
 
 .login-section form input {
@@ -57,7 +65,7 @@ a {
   border: none;
   outline: none;
   width: 100%;
-  background-color: #4e4eeb3f;
+  background-color: var(--white);
 }
 
 .login-section form input[type="submit"] {
@@ -74,7 +82,7 @@ a {
   font-weight: 500;
 
   &&:hover {
-    color: #4E4FEB;
+    color: var(--main-color);
   }
 }
 
@@ -93,7 +101,7 @@ a {
   width: 100%;
   height: 70px;
   padding: 0 20px;
-  background-color: #4E4FEB;
+  background-color: var(--main-color);
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
   position: relative;
@@ -108,7 +116,7 @@ a {
 }
 
 .header a {
-  color: #EEEEEE;
+  color: var(--white);
   font-size: 14px;
   font-weight: 500;
   padding: 10px;
@@ -129,14 +137,14 @@ a {
   transition: color 0.1s ease-in-out;
   cursor: pointer;
   &&:hover {
-    background-color: #068FFF;
-    color: black;
+    background-color: var(--secondary-color);
+    color: var(--black);
   }
 }
 
 .header .header-button.active {
-  background-color: #068FFF;
-  color: black;
+  background-color: var(--secondary-color);
+  color: var(--black);
 }
 
 .header .header-section-right {
@@ -164,7 +172,7 @@ a {
 }
 
 .header .header-section-right .header-usuario-container {
-  color: #EEEEEE;
+  color: var(--white);
   display: flex;
   align-items: center;
   flex-direction: row;
@@ -188,11 +196,11 @@ a {
   width: 40px;
   height: 40px;
   border-radius: 5px;
-  color: #EEEEEE;
+  color: var(--white);
   transition: background-color 0.3s ease-in-out;
   cursor: pointer;
   &&:hover {
-    background-color: #068FFF;
+    background-color: var(--secondary-color);
   }
 }
 
@@ -203,7 +211,7 @@ a {
   left: -100%;
   transition: transform 0.3s ease-in-out;
   flex-direction: column;
-  background-color: #4E4FEB;
+  background-color: var(--main-color);
   height: 100vh;
   width: 50vw;
 }
@@ -219,7 +227,7 @@ a {
   padding: 10px;
   width: 100%;
   height: 100%;
-  color: #EEEEEE;
+  color: var(--white);
   margin:45px 0;
 }
 
@@ -240,8 +248,8 @@ a {
   left: -100px;
   gap: 20px;
   padding: 20px;
-  color: #EEEEEE;
-  background-color: #4E4FEB;
+  color: var(--white);
+  background-color: var(--main-color);
   border-radius: 10px;
   width: 200px;
 }
@@ -277,6 +285,7 @@ main {
   width: 100%;
   height: 100vh;
   padding: 20px;
+  
 }
 
 /* Articulos */
@@ -288,7 +297,9 @@ main {
   width: 90%;
   padding: 10px;
   border-radius: 10px;
-  background-color: #068fff50;
+  background: rgb(2,0,36);
+  /* background: linear-gradient(90deg, rgba(2, 0, 36, 0.884) 0%, rgba(78,79,235,0.7) 31%, rgba(0, 213, 255, 0.39) 100%); */
+  background: var(--main-gradient);
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
   margin: 20px 0;
 }
@@ -331,11 +342,11 @@ main {
   border: none;
   outline: none;
   cursor: pointer;
-  background-color: #4E4FEB;
-  color: #EEEEEE;
+  background-color: var(--main-color);
+  color: var(--white);
   
   &&:hover {
-    background-color: #068FFF;
+    background-color: var(--secondary-color);
     scale: 1.1;
   }
 }
@@ -348,13 +359,13 @@ main {
   margin: 30px;
   padding: 0;
   width: 100%;
-  border: solid 3px #4E4FEB;
+  border: solid 3px var(--main-color);
   border-radius: 20px;
 }
 
 .usuario-menu {
   display: flex;
-  border-right: solid 2px #4E4FEB;
+  border-right: solid 2px var(--main-color);
   height: 100%;
   width: 25%;
 }
@@ -372,15 +383,15 @@ main {
 .usuario-menu-option {
   cursor: pointer;
   padding: 5px 10px;
-  border-bottom: solid 2px #4E4FEB;
+  border-bottom: solid 2px var(--main-color);
 
   &&:hover {
     opacity: 0.6;
-    color: #4E4FEB;
+    color: var(--main-color);
   }
 }
 .usuario-menu-option.active {
-  color: #4E4FEB;
+  color: var(--main-color);
 }
 
 .usuario-informacion {
@@ -402,7 +413,7 @@ main {
 .usuario-informacion-title {
   width: 100%;
   padding: 10px 0;
-  border-bottom: solid 2px #4E4FEB;
+  border-bottom: solid 2px var(--main-color);
 }
 
 .usuario-informacion-datos {
@@ -428,7 +439,7 @@ main {
   width: 100%;
   height: 100%;
   padding: 10px;
-  border: solid 2px #4E4FEB;
+  border: solid 2px var(--main-color);
   border-radius: 10px;
 }
 
@@ -436,7 +447,7 @@ main {
   width: 250px;
   height: 250px;
   border-radius: 50%;
-  border: solid 3px #4E4FEB;
+  border: solid 3px var(--main-color);
 }
 
 /* nomina */
@@ -489,7 +500,7 @@ main {
   width: 100%;
   height: 100%;
   padding: 0 10px;
-  border: 1px solid #4E4FEB;
+  border: 1px solid var(--main-color);
 }
 
 
@@ -499,16 +510,16 @@ main {
   /* Login */
   .login-section {
     width: 100%;
-    height: 100%;
+    height: 100vh;
+    padding: 30px;
+    border-radius: 0;
+    box-shadow: none;
   }
 
   .login-section form {
     width: 100%;
     height: 100%;
     gap: 30px;
-    padding: 30px;
-    border-radius: 0;
-    box-shadow: none;
   }
 
   /* Header */

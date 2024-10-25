@@ -25,10 +25,9 @@ export function calcularNomina() {
   const user = JSON.parse(localStorage.getItem('login_success'))
   const { cedula, pago } = user
 
-  let registros = JSON.parse(localStorage.getItem('registros')) || registrosJson
-  if (!registros.includes(registrosJson)) {
-    registros = registros.concat(registrosJson)
-  }
+  let registros = JSON.parse(localStorage.getItem('registros')) || []
+
+  registros = registros.concat(registrosJson)
 
   let registrosUser = registros.filter(registro => registro.documento_Usuario === cedula)
 

@@ -2,11 +2,8 @@ import registrosJson from '../../modelo/mocks/registros.JSON' with { type: "json
 import { LOCATION, PATH } from "./const.js"
 import { calcularDiferencia, calcularNomina } from '../../modelo/marcar/calcualarNomina.js'
 
-let registros = JSON.parse(localStorage.getItem('registros')) || registrosJson
-
-if (!registros.includes(registrosJson)) {
-  registros = registros.concat(registrosJson)
-}
+let registros = JSON.parse(localStorage.getItem('registros')) || []
+registros = registros.concat(registrosJson)
 
 export function Nomina() {
   

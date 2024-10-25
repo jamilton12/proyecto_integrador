@@ -4,9 +4,9 @@ import { calcularDiferencia, calcularNomina } from '../../modelo/marcar/calcuala
 
 let registros = JSON.parse(localStorage.getItem('registros')) || registrosJson
 
-if (!(registros.includes(registrosJson))) {
-  registros.concat(registrosJson)
-} 
+if (!registros.includes(registrosJson)) {
+  registros = registros.concat(registrosJson)
+}
 
 export function Nomina() {
   

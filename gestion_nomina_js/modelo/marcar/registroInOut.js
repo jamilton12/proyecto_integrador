@@ -27,7 +27,6 @@ export function marcarSalida() {
   registros[registroActual].registro.hora_salida = horaActual
   registros[registroActual].esta_Activa = false
 
-  console.log(registros);
   localStorage.setItem('registros', JSON.stringify(registros))
 }
 

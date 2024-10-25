@@ -1,4 +1,4 @@
-import registroJson from "../../modelo/mocks/registros.JSON" with { type: "json" }
+import registrosJson from "../../modelo/mocks/registros.JSON" with { type: "json" }
 
 export function calcularDiferencia(registroActual) {
   let {registro : {fecha_ingreso, hora_ingreso, fecha_salida, hora_salida}} = registroActual
@@ -25,9 +25,9 @@ export function calcularNomina() {
   const user = JSON.parse(localStorage.getItem('login_success'))
   const { cedula, pago } = user
 
-  const registros = JSON.parse(localStorage.getItem('registros')) || registroJson
-  if (!(registros.includes(registroJson))) {
-    registros.concat(registroJson)
+  let registros = JSON.parse(localStorage.getItem('registros')) || registrosJson
+  if (!registros.includes(registrosJson)) {
+    registros = registros.concat(registrosJson)
   }
 
   let registrosUser = registros.filter(registro => registro.documento_Usuario === cedula)

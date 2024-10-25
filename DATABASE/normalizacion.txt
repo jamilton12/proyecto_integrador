@@ -32,3 +32,4 @@ NOMINA {
 REGISTRO_EMPLEADO {
 	id_registro, documentoEmpleado, fechaIngreso, horaEntrada, horaSalida, FechaSalida
 }
+

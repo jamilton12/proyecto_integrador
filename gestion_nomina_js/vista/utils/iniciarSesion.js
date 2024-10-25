@@ -4,7 +4,7 @@ export function iniciarSesion() {
   let $loginForm = document.querySelector('#login-form')
   let $userName = document.querySelector('#userName')
   let $password = document.querySelector('#password')
-  let $message = document.querySelector('.login-error-message')
+  let $message = document.querySelector('.login-error-message p')
 
   $loginForm.addEventListener('submit', (e) => {
     e.preventDefault()
@@ -12,8 +12,7 @@ export function iniciarSesion() {
     const passwordValue = $password.value
     let user = validarUsuario(userValue, passwordValue)
     if (!user) {
-      $message.style.color = 'red'
-      $message.textContent = 'Usuario o Contraseña Incorrectos'
+      $message.style.display = 'block'
       return
     }
 

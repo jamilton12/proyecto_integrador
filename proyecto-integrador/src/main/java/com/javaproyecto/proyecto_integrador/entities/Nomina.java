@@ -16,7 +16,7 @@ public class Nomina {
     private Date fechaFINNom;
     private Double horasRegularesNom;
     private Double horasRegularesDomNom;
-    private Double horasExtrasRegularesDomNom;
+    private Double horasExtrasRegularesNom;
     private Double horasExtrasNocturnoNom;
     private Double horasExtrasDominicalesNom;
     private Double subsidioTransporteNom;
@@ -66,12 +66,12 @@ public class Nomina {
         this.horasRegularesDomNom = horasRegularesDomNom;
     }
 
-    public Double getHorasExtrasRegularesDomNom() {
-        return horasExtrasRegularesDomNom;
+    public Double getHorasExtrasRegularesNom() {
+        return horasExtrasRegularesNom;
     }
 
-    public void setHorasExtrasRegularesDomNom(Double horasExtrasRegularesDomNom) {
-        this.horasExtrasRegularesDomNom = horasExtrasRegularesDomNom;
+    public void setHorasExtrasRegularesNom(Double horasExtrasRegularesDomNom) {
+        this.horasExtrasRegularesNom = horasExtrasRegularesDomNom;
     }
 
     public Double getHorasExtrasNocturnoNom() {

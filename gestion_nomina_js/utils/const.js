@@ -1,13 +1,13 @@
 export const LOCATION = window.location
 
 export const PATH = {
-  INICIO_SESION: '/gestion_nomina_js/iniciarSesion',
-  MARCAR: '/gestion_nomina_js/marcar',
-  INICIO: '/gestion_nomina_js/',
-  NOMINA: '/gestion_nomina_js/nomina.html',
-  EMPLEADOS: '/gestion_nomina_js/empleados.html',
-  USUARIO: '/gestion_nomina_js/usuario.html',
-  INDEX: '/gestion_nomina_js/'
+  INICIO_SESION: '/iniciarSesion',
+  MARCAR: '/marcar',
+  INICIO: '/',
+  NOMINA: '/nomina.html',
+  EMPLEADOS: '/empleados.html',
+  USUARIO: '/usuario.html',
+  INDEX: '/'
 }
 // export const PATH = {
 //   INICIO_SESION: '/gestion_nomina_js/vista/paginas/IniciarSesion.html',

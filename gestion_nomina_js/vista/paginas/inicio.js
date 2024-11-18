@@ -1,5 +1,6 @@
 
 export function Inicio () {
+  document.title = 'Inicio'
   const $mian = document.createElement('main')
   $mian.innerHTML = `
       <section class="head-main"> 

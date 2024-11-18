@@ -1,5 +1,6 @@
 import { validarUsuario } from "../modelo/usuario/iniciarSesion.js"
-import { LOCATION, PATH} from "../vista/utils/const.js"
+import { LOCATION, PATH} from "../utils/const.js"
+
 export function iniciarSesion() {
   let $loginForm = document.querySelector('#login-form')
   let $userName = document.querySelector('#userName')

@@ -1,5 +1,5 @@
 import { LOCATION, PATH } from "./const.js";
-import { marcarSalida, marcarIngreso } from "../../controllador/registroInOut.js";
+import { marcarSalida, marcarIngreso } from "../controllador/registroInOut.js";
 
 export function Marcar() {
   marcar()

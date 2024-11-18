@@ -1,8 +1,8 @@
 
 
-export default function IniciarSesion() {
+export function IniciarSesion() {
   const $mianInicioSesion = document.createElement('main')
-  $mianInicioSesion.classList.add('body-login')
+  $mianInicioSesion.classList.add('login-body')
   $mianInicioSesion.innerHTML = `
       <section class="login-section">
       <h2>Iniciar Sesión</h2>

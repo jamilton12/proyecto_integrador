@@ -1,5 +1,5 @@
-import { LOCATION, PATH } from "../utils/const.js";
-import { cambiarBotonHeader } from "../utils/Marcar.js";
+import { LOCATION, PATH } from "../../utils/const.js";
+import { cambiarBotonHeader } from "../../utils/Marcar.js";
 
 export function Header() {
   const user = JSON.parse(localStorage.getItem('login_success')) ?? {}

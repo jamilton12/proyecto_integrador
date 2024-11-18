@@ -1,14 +1,12 @@
-import { LOCATION, PATH } from "./const.js";
-import { cambiarBotonHeader } from "./Marcar.js";
+import { LOCATION, PATH } from "../utils/const.js";
+import { cambiarBotonHeader } from "../utils/Marcar.js";
 
 export function Header() {
-  const user = JSON.parse(localStorage.getItem('login_success'))
-  const { nombre , rol } = user
-  const isAdmin = rol === 'admin'
+  const user = JSON.parse(localStorage.getItem('login_success')) ?? {}
+  const { nombre , rol = 'admin' } = user 
+  const isAdmin = rol === 'admin' 
   const isJefe = rol === 'jefe'
 
-
-  const $body = document.querySelector('body')
   let $header = document.createElement('header')
   $header.classList.add('header')
 
@@ -39,7 +37,7 @@ export function Header() {
     <section class="header-section-right">
       <div class="header-usuario-container">
         <a class="header-usuario" href="./Usuario.html">
-          <span id ="header-usuario-nombre">${nombre}</span>
+          <span id ="header-usuario-nombre">${nombre ?? 'Usuario'}</span>
         </a>
         <span class="header-usuario-icon ">
           <i class="fi fi-rr-angle-small-down"></i>
@@ -59,12 +57,13 @@ export function Header() {
       </div>
     </section>
   `
-  $body.insertAdjacentHTML('afterbegin', $header.outerHTML)
 
-  headerModalMenu()
-  headerModalUsusario()
-  cerrarSesion()
-  cambiarBotonHeader()
+  // headerModalMenu()
+  // headerModalUsusario()
+  // cerrarSesion()
+  // cambiarBotonHeader()
+
+  return $header
 }
 
 

@@ -1,61 +1,8 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Inicio</title>
-  <link rel="stylesheet" href="./styles/Styles.css">
-  <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-regular-rounded/css/uicons-regular-rounded.css'>
-</head>
-<body>
-  <!-- <header class="header">
-    <section class="header-section-left">
-      <a class="header-button active" href="./Inicio.html">Inicio</a>
-      <a class="header-button" id="header-button-marcar" href="./Marcar.html">Marcar Ingreso</a>
-      <a class="header-button"href="./Nomina.html">Nomina</a>  
-      <a class="header-button" id="ver-empleados" href="./Empleados.html">Empleados</a>  
-    </section>
-    
-    <section class="header-modal">
-      <div class="header-modal-button">
-        <i class="fi fi-rr-menu-burger"></i>
-      </div>
-      <div class="header-modal-container-menu">
-        <nav class="header-modal-menu">
-          <i class="fi fi-rr-cross"></i>
-          <a class="header-button active" href="./Inicio.html">Inicio</a>
-          <a class="header-button" id="header-button-marcar" href="./Marcar.html">Marcar Ingreso</a>
-          <a class="header-button"href="./Nomina.html">Nomina</a>
-          <a class="header-button" id="ver-empleados" href="./Empleados.html">Empleados</a>
-        </nav>
-      </div>
-    </section>
-    <section class="header-section-right">
-      <div class="header-usuario-container">
-        <a class="header-usuario" href="./Usuario.html">
-          <span id ="header-usuario-nombre">Usuario</span>
-        </a>
-        <span class="header-usuario-icon ">
-          <i class="fi fi-rr-angle-small-down "></i>
-        </span>
-        <nav class="header-usuario-menu ">
-          <ul>
-            <li>
-              <span id ="cerrar-sesion">
-                Cerrar Sesión
-              </span>
-            </li>
-          </ul>
-        </nav>
-      </div>
-      <div class="header-foto">
-        <img src="../assets/foto_ususario.jpg" alt="Foto del Empleado">
-      </div>
-    </section>
-  </header> -->
 
-  <main>
-    <section class="head-main"> 
+export function Inicio () {
+  const $mian = document.createElement('main')
+  $mian.innerHTML = `
+      <section class="head-main"> 
       <div class="main-empresa-container">
         <img src="https://upload.wikimedia.org/wikipedia/commons/1/16/Marca.svg" alt="">
         <h1>Bienvenido Epleado de empersa</h1>
@@ -103,13 +50,6 @@
         </article>
       </div>
     </section>
-
-  </main>
-  <footer>
-
-  </footer>
-
-
-  <script type="module" src="../../app.js"></script>
-</body>
-</html>
+  `
+  return $mian
+}

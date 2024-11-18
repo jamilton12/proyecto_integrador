@@ -1,5 +1,5 @@
 import registrosJson from '../../modelo/mocks/registros.JSON' with { type: "json" }
-import { LOCATION, PATH } from "./const.js"
+import { LOCATION, PATH } from "../utils/const.js"
 import { calcularDiferencia, calcularNomina } from '../../modelo/marcar/calcualarNomina.js'
 
 let registros = JSON.parse(localStorage.getItem('registros')) || []

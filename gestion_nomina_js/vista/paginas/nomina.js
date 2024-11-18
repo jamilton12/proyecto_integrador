@@ -1,14 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ver Nomina</title>
-  <link rel="stylesheet" href="./styles/Styles.css">
-  <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-regular-rounded/css/uicons-regular-rounded.css'>
-</head>
-<body>
-  <main class="nomina-main">
+export function Nomina() {
+  const $mian = document.createElement('main')
+  $mian.classList.add('nomina-main')
+  $mian.innerHTML = `    
     <table class="nomina-table">
       <thead class="nomina-table-head">
         <tr class="nomina-table-row">
@@ -38,8 +31,6 @@
         </tr>
       </tfoot> -->
     </table>
-  </main>
-
-  <script type="module" src="../../app.js"></script>
-</body>
-</html>
+  `
+  return $mian
+}

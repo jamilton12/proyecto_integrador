@@ -1,4 +1,4 @@
-export function Marcar() {
+export default function Marcar() {
   const $mian = document.createElement('main')
   $mian.innerHTML = `    
     <section class="marcar-section">

@@ -1,4 +1,4 @@
-export function Usuario() {
+export default function Usuario() {
   const $mian = document.createElement('main')
   $mian.classList.add('usuario-main')
   $mian.innerHTML = `

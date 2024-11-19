@@ -36,7 +36,7 @@ export function Header() {
     </section>
     <section class="header-section-right">
       <div class="header-usuario-container">
-        <a class="header-usuario" href="./Usuario.html">
+        <a class="header-usuario" href="${PATH.USUARIO}">
           <span id ="header-usuario-nombre">${nombre ?? 'Usuario'}</span>
         </a>
         <span class="header-usuario-icon ">
@@ -53,7 +53,7 @@ export function Header() {
         </nav>
       </div>
       <div class="header-foto">
-        <img src="../assets/foto_ususario.jpg" alt="Foto del Empleado">
+        <img src="/gestion_nomina_js/vista/assets/foto_ususario.jpg" alt="Foto del Empleado">
       </div>
     </section>
   `
@@ -67,11 +67,11 @@ export function Header() {
 }
 
 
-function activeForPath(PATH) {
+export function activeForPath(PATH) {
   return LOCATION.pathname === PATH ? 'active' : ''
 }
 
-function headerModalMenu() {
+export function headerModalMenu() {
   let $headerBtonModal = document.querySelector('.header-modal-button')
   let $headerModal = document.querySelector('.header-modal-container-menu')
   let $closeModal = document.querySelector('.header-modal-container-menu i')
@@ -85,7 +85,7 @@ function headerModalMenu() {
   });
 }
 
-function headerModalUsusario() {
+export function headerModalUsusario() {
   let $modalUsuario = document.querySelector('.header-usuario-menu')
   let $modalUsuariobton = document.querySelector('.header-usuario-icon') ?? null 
   if ($modalUsuariobton === null) return
@@ -104,7 +104,7 @@ function headerModalUsusario() {
   })
 }
 
-function cerrarSesion() {
+export function cerrarSesion() {
   let $cerrarBton = document.querySelector('#cerrar-sesion')
   $cerrarBton.addEventListener('click', () => {
     localStorage.removeItem('login_success')

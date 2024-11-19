@@ -1,6 +1,6 @@
 
-export function Inicio () {
-  document.title = 'Inicio'
+export default function Inicio () {
+
   const $mian = document.createElement('main')
   $mian.innerHTML = `
       <section class="head-main"> 

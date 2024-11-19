@@ -1,4 +1,4 @@
-export function Nomina() {
+export default function Nomina() {
   const $mian = document.createElement('main')
   $mian.classList.add('nomina-main')
   $mian.innerHTML = `    

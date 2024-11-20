@@ -1,5 +1,5 @@
 import { LOCATION, PATH } from "../../utils/const.js";
-import { Header } from "../components/Header.js"
+import { Header } from "../components/header/Header.js"
 import { Error } from "../paginas/error.js";
 import { routes } from "./routes.js";
 
@@ -22,7 +22,6 @@ export function Router() {
     d.title = 'Error 404 Pagina no encontrada'
     return
   }
-
 
   if (hash !== PATH.INICIO_SESION) {
     $app.append(Header())

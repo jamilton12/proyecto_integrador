@@ -1,4 +1,4 @@
-import { iniciarSesion } from "../controllador/iniciarSesion.js"
+import { iniciarSesion } from "../controllador/usuario/iniciarSesion.js"
 import { LOCATION, PATH } from "../utils/const.js"
 import { cambiarBotonHeader } from "../utils/Marcar.js"
 import { cerrarSesion, Header, headerModalMenu, headerModalUsusario } from "./components/header/Header.js"

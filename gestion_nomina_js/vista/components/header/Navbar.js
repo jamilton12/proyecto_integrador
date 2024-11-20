@@ -1,3 +1,4 @@
+import { traerNomina } from "../../../controllador/Nomina.js"
 import { LOCATION, PATH } from "../../../utils/const.js"
 
 
@@ -5,32 +6,33 @@ const navList = [
   {
     nombre: 'Inicio',
     id : '',
-    isSelected : isSelected(PATH.INICIO),
     href : PATH.INICIO
   },{
-    nombre: 'Marcar Ingreso',
-    id : '',
-    isSelected : isSelected(PATH.MARCAR),
+    nombre: 'Marcar',
+    id : 'header-button-marcar',
     href : PATH.MARCAR
   },
   {
     nombre: 'Nomina',
-    id : '',
-    isSelected : isSelected(PATH.NOMINA),
+    id : 'ver-empleados',
     href : PATH.NOMINA
   },
   {
     nombre: 'Empleados',
     id : '',
-    isSelected : isSelected(PATH.EMPLEADOS),
     href : PATH.EMPLEADOS
   }
 ]
 
 export const Navbar = (props) => {
-  const { className, rol } = props
+  const { children, className, rol } = props
   const $nav = document.createElement('nav')
+  const { registros } = traerNomina()
+  const lastRegistro = registros?.[registros.length - 1]?.esta_Activa || false
+  const tipoMarcar = lastRegistro ? ' Salida' : ' Ingreso'
   $nav.classList.add(className)
+  if (children !== undefined) $nav.append(children)
+
   navList.map(nav => {
     if (nav.nombre === 'Empleados'){
       if (rol !== 'admin' && rol !== 'jefe') {
@@ -39,18 +41,19 @@ export const Navbar = (props) => {
     } 
     const $a = document.createElement('a')
     $a.classList.add('header-button' )
-    if (nav.isSelected) {
+    if (LOCATION.hash === nav.href) {
       $a.classList.add('active')
     }
-
-    $a.href = nav.href
+    $a.title = nav.nombre
     $a.textContent = nav.nombre
+    $a.href = nav.href
+    $a.id = nav.id
+    if (nav.nombre === 'Marcar') {
+      $a.textContent = nav.nombre + tipoMarcar
+    }
     $nav.append($a)
   })
 
   return $nav
 }
 
-function isSelected(path) {
-  return LOCATION.hash === path
-}

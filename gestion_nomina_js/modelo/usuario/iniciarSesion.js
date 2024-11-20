@@ -8,7 +8,7 @@ export function validarUsuario($usuario, $clave) {
     Users = Users.concat(usuario)
   }
 
-  const usuarioValido = Users.find(user => user.cedula === $usuario && user.clave === $clave)
+  const usuarioValido = Users.find(user => user.cedula_Emple === $usuario && user.clave === $clave)
 
   if (!usuarioValido) {
     return false
@@ -16,3 +16,4 @@ export function validarUsuario($usuario, $clave) {
 
   return usuarioValido
 }
+

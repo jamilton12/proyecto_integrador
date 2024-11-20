@@ -23,19 +23,16 @@ function calcularTotalHoras(registros) {
 
 export function calcularNomina() {
   const user = JSON.parse(localStorage.getItem('login_success'))
-  const { cedula, pago } = user
-
+  const { cedula_Emple } = user
+  const pago  = 5000
   let registros = JSON.parse(localStorage.getItem('registros')) || []
 
   registros = registros.concat(registrosJson)
 
-  let registrosUser = registros.filter(registro => registro.documento_Usuario === cedula)
+  let registrosUser = registros.filter(registro => registro.documento_Usuario === cedula_Emple)
 
   let totalHoras = calcularTotalHoras(registrosUser)
   let nomina = totalHoras * pago
 
-
-  
-  
   return {nomina, totalHoras}
 }

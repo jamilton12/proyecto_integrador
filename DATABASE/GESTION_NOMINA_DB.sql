@@ -101,6 +101,8 @@ CREATE TABLE USUARIOS (
     ID_USUARIO INT NOT NULL PRIMARY KEY,
     Contraseña VARCHAR(25) NOT NULL,
     
+    Rol_Usuario VARCHAR(10) NOT NULL,
+
 	Documento_Emple VARCHAR(25)  NOT NULL,
     
     Activo BOOLEAN NOT NULL, 

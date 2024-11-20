@@ -1,5 +1,5 @@
-import { validarUsuario } from "../modelo/usuario/iniciarSesion.js"
-import { LOCATION, PATH} from "../utils/const.js"
+import { validarUsuario } from "../../modelo/usuario/iniciarSesion.js"
+import { LOCATION, PATH} from "../../utils/const.js"
 
 export function iniciarSesion() {
   let $loginForm = document.querySelector('#login-form')
@@ -20,4 +20,9 @@ export function iniciarSesion() {
     localStorage.setItem('login_success', JSON.stringify(user))
     LOCATION.href = PATH.INICIO
   })
+}
+
+export function logaut() {
+  localStorage.removeItem('login_success')
+  return
 }

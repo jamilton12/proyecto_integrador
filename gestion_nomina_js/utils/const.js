@@ -3,11 +3,11 @@ export const LOCATION = window.location
 export const PATH = {
   INICIO_SESION: '#/iniciarSesion',
   MARCAR: '#/marcar',
-  INICIO: '#/',
+  INICIO: '',
   NOMINA: '#/nomina',
   EMPLEADOS: '#/empleados',
   USUARIO: '#/usuario',
-  INDEX: '#/',
+  INDEX: '',
   ERROR : '#/error404'
 }
 // export const PATH = {

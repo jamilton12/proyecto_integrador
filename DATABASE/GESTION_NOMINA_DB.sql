@@ -17,6 +17,7 @@ CREATE TABLE EMPLEADOS (
 	Documento_Emple VARCHAR(25) PRIMARY KEY NOT NULL,
     Nombre_Emple VARCHAR(25) NOT NULL,
     Apellidos_Emple VARCHAR(25) NOT NULL,
+    Url_Foto_Emple VARCHAR(25) NOT NULL,
     Cargo_Emple VARCHAR(25) NOT NULL,
     Edad_Emple INT NOT NULL,
     Sexo_Emple VARCHAR(25) NOT NULL,

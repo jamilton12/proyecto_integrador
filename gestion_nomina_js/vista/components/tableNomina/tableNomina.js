@@ -17,10 +17,10 @@ const tableNominaHeader = [
   "HorasTrabajadas",
 ]
 
-
+const user = JSON.parse(localStorage.getItem('login_success'))
 
 export const tableNomina = () => {
-  const { nomina, totalHoras, registros, diferencias } = traerNomina()
+  const { nomina, totalHoras, registros, diferencias } = traerNomina(user)
   const $headers = tableNominaHeader.map((header) => {
     return TableElementHeader({
       className: 'nomina-table-cell',

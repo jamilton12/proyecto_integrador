@@ -19,6 +19,7 @@ CREATE TABLE EMPLEADOS (
     Apellidos_Emple VARCHAR(25) NOT NULL,
     Cargo_Emple VARCHAR(25) NOT NULL,
     Edad_Emple INT NOT NULL,
+    Sexo_Emple VARCHAR(25) NOT NULL,
     Pais_Emple VARCHAR(25) NOT NULL,
     Departamento_Emple VARCHAR(25) NOT NULL,
     Municipio_Emple VARCHAR(25) NOT NULL,

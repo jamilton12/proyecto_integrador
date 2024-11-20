@@ -133,6 +133,13 @@ a {
   gap: 20px;
   height: 100%;
 }
+.header-nav {
+  display: flex;
+  align-items: flex-end;
+  flex-direction: row;
+  gap: 20px;
+  height: 100%;
+}
 
 .header a {
   color: var(--white);

@@ -1,7 +1,7 @@
 import { iniciarSesion } from "../controllador/iniciarSesion.js"
 import { LOCATION, PATH } from "../utils/const.js"
 import { cambiarBotonHeader } from "../utils/Marcar.js"
-import { cerrarSesion, Header, headerModalMenu, headerModalUsusario } from "./components/Header.js"
+import { cerrarSesion, Header, headerModalMenu, headerModalUsusario } from "./components/header/Header.js"
 import { Router } from "./roustes/Router.js"
 export function App() {
   const USER = JSON.parse(localStorage.getItem('login_success'))
@@ -17,7 +17,6 @@ export function App() {
 
   if (LOCATION.hash === PATH.INICIO_SESION) {
     iniciarSesion()
-
   }
   // forzarCierre()
   // headerModalMenu()

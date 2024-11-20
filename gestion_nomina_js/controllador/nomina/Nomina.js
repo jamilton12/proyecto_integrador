@@ -1,5 +1,5 @@
-import registrosJson from '../modelo/mocks/registros.JSON' with { type: "json" }
-import { calcularDiferencia, calcularNomina } from '../modelo/marcar/calcualarNomina.js'
+import registrosJson from '../../modelo/mocks/registros.JSON' with { type: "json" }
+import { calcularDiferencia, calcularNomina } from '../../modelo/marcar/calcualarNomina.js'
 
 
 let registros = JSON.parse(localStorage.getItem('registros')) || []
@@ -12,5 +12,5 @@ export function traerNomina() {
   const diferencias = NewRegistros.map(registro => calcularDiferencia(registro))
   const { nomina, totalHoras } = calcularNomina()
 
-  return {nomina, totalHoras,registros: NewRegistros , diferencias }
+  return { nomina, totalHoras, registros: NewRegistros, diferencias }
 }

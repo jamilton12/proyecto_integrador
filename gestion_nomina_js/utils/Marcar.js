@@ -1,30 +1,30 @@
 import { LOCATION, PATH } from "./const.js";
-import { marcarSalida, marcarIngreso } from "../controllador/registroInOut.js";
+import { marcarSalida, marcarIngreso } from "../controllador/nomina/registroInOut.js";
 
 export function Marcar() {
   marcar()
   if (LOCATION.pathname === PATH.MARCAR) {
     cambiarBotonMarcar()
-  }    
+  }
 }
 
 export function marcar() {
   let $btonMarcar = document.querySelector('.marcar-button')
-  if (LOCATION.pathname === PATH.MARCAR) {  
+  if (LOCATION.pathname === PATH.MARCAR) {
     let registros = JSON.parse(localStorage.getItem('registros'))
-    let on =true
-    if (registros != null) { 
+    let on = true
+    if (registros != null) {
       let registroActual = registros.length - 1
-      on = !registros[registroActual].esta_Activa 
+      on = !registros[registroActual].esta_Activa
     }
 
-    $btonMarcar.addEventListener('click', () => {  
+    $btonMarcar.addEventListener('click', () => {
       if (on) {
         marcarIngreso()
         cambiarBotonHeader()
         cambiarBotonMarcar()
         on = false
-      }else {
+      } else {
         marcarSalida()
         cambiarBotonHeader()
         cambiarBotonMarcar()
@@ -38,7 +38,7 @@ export function marcar() {
 export function cambiarBotonHeader() {
   let $headerbtonMarcar = document.querySelector('#header-button-marcar')
 
-  let registros = JSON.parse(localStorage.getItem('registros')) 
+  let registros = JSON.parse(localStorage.getItem('registros'))
   if (registros === null) {
     return
   }
@@ -55,7 +55,7 @@ export function cambiarBotonHeader() {
 export function cambiarBotonMarcar() {
   let $btonMarcar = document.querySelector('.marcar-button')
 
-  let registros = JSON.parse(localStorage.getItem('registros')) 
+  let registros = JSON.parse(localStorage.getItem('registros'))
   if (registros === null) {
     return
   }

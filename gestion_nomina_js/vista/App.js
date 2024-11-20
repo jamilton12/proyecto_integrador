@@ -1,7 +1,6 @@
+import { recetRegistros } from "../controllador/nomina/registroInOut.js"
 import { iniciarSesion } from "../controllador/usuario/iniciarSesion.js"
 import { LOCATION, PATH } from "../utils/const.js"
-import { cambiarBotonHeader } from "../utils/Marcar.js"
-import { cerrarSesion, Header, headerModalMenu, headerModalUsusario } from "./components/header/Header.js"
 import { Router } from "./roustes/Router.js"
 export function App() {
   const USER = JSON.parse(localStorage.getItem('login_success'))
@@ -19,10 +18,7 @@ export function App() {
     iniciarSesion()
   }
   // forzarCierre()
-  // headerModalMenu()
-  // headerModalUsusario()
-  // cerrarSesion()
-  // cambiarBotonHeader()
+  // recetRegistros()
 }
 
 function forzarCierre() {

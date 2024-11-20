@@ -1,4 +1,4 @@
-import { traerNomina } from "../../../controllador/nomina/Nomina.js"
+import { lastRegistro } from "../../../controllador/nomina/Nomina.js"
 import { LOCATION, PATH } from "../../../utils/const.js"
 
 
@@ -27,9 +27,9 @@ const navList = [
 export const Navbar = (props) => {
   const { children, className, rol } = props
   const $nav = document.createElement('nav')
-  const { registros } = traerNomina()
-  const lastRegistro = registros?.[registros.length - 1]?.esta_Activa || false
-  const tipoMarcar = lastRegistro ? ' Salida' : ' Ingreso'
+  const { esta_Activa } = lastRegistro()
+  const islastRegistro = esta_Activa || false
+  const tipoMarcar = islastRegistro ? ' Salida' : ' Ingreso'
   $nav.classList.add(className)
   if (children !== undefined) $nav.append(children)
 

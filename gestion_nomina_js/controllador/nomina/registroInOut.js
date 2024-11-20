@@ -1,3 +1,5 @@
+import { lastRegistro } from "./Nomina.js"
+
 const user = JSON.parse(localStorage.getItem('login_success'))
 const fecha = new Date()
 let fechaActual = fecha.toLocaleDateString('es-CO', {year:'numeric', month:'short', day:'numeric'} )
@@ -7,7 +9,7 @@ export function marcarIngreso() {
   let registros = JSON.parse(localStorage.getItem('registros')) || []
 
   registros.push({
-    documento_Usuario: user.cedula,
+    documento_Usuario: user.cedula_Emple,
     esta_Activa: true,
     registro: {      
       fecha_ingreso: fechaActual,
@@ -21,11 +23,17 @@ export function marcarIngreso() {
 }
 
 export function marcarSalida() {
-  let registros = JSON.parse(localStorage.getItem('registros')) || []
-  let registroActual = registros.length - 1
-  registros[registroActual].registro.fecha_salida = fechaActual
-  registros[registroActual].registro.hora_salida = horaActual
-  registros[registroActual].esta_Activa = false
+  console.log('salida');
+  
+  let registros = JSON.parse(localStorage.getItem('registros'))
+  const registroActual = lastRegistro()
+  console.log(registroActual);
+  
+  registros.map((registro, index) => {
+    registros[index].registro.fecha_salida = fechaActual
+    registros[index].registro.hora_salida = horaActual
+    registros[index].esta_Activa = false
+  })
 
   localStorage.setItem('registros', JSON.stringify(registros))
 }

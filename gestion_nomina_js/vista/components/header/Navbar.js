@@ -1,7 +1,6 @@
 import { lastRegistro } from "../../../controllador/nomina/Nomina.js"
 import { LOCATION, PATH } from "../../../utils/const.js"
 
-
 const navList = [
   {
     nombre: 'Inicio',

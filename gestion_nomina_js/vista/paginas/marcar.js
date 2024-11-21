@@ -22,7 +22,7 @@ export function marcar() {
   const registroActual = lastRegistro()
   const on = !registroActual.esta_Activa
   console.log(registroActual,on);
-  
+
   if (on) {
     marcarIngreso()
   } else {

@@ -11,7 +11,7 @@ export function marcarIngreso() {
   registros.push({
     documento_Usuario: user.cedula_Emple,
     esta_Activa: true,
-    registro: {      
+    registro: {
       fecha_ingreso: fechaActual,
       hora_ingreso: horaActual,
       fecha_salida: "",
@@ -28,7 +28,7 @@ export function marcarSalida() {
   let registros = JSON.parse(localStorage.getItem('registros'))
   const registroActual = lastRegistro()
   console.log(registroActual);
-  
+
   registros.map((registro, index) => {
     registros[index].registro.fecha_salida = fechaActual
     registros[index].registro.hora_salida = horaActual

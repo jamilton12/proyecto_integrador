@@ -614,8 +614,8 @@ main {
 /* Modal */ 
 
 .modal-section {
-  /* z-index: 20; */
-  display: flex;
+  z-index: 20;
+  display: none;
   position: fixed;
   top: 0;
   left: 0;
@@ -625,12 +625,10 @@ main {
   justify-content: center;
   align-items: center;
   padding: 40px;
-  pointer-events: none;
   transition: opacity 0.3s ease-in-out;
 }
 
 .modal-container {
-  /* z-index: 30; */
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -643,9 +641,7 @@ main {
 }
 
 .modal-close {
-  /* z-index: 40; */
   position: absolute;
-  background-color: var(--main-color);
   top: 20px;
   right: 20px;
   padding: 10px;
@@ -683,7 +679,4 @@ main {
   .header .header-modal {
     display: flex;
   }
-
-
-
 }

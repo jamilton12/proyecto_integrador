@@ -1,0 +1,21 @@
+[
+  {
+    "cedula_Emple"  : "123456789",
+    "nombre_Emple"  : "Jamilton",
+    "apellido_Emple": "Hoyos Perez",
+    "UrlFoto_Emple": "/gestion_nomina_js/vista/assets/foto_ususario.jpg",
+    "cargo_Emple"   : "Programador",
+    "edad_Emple"    : 25,
+    "sexo_Emple"    : "Masculino",
+    "pais_Emple"    : "Colombia",
+    "ciudad_Emple"  : "Medellin",
+    "departamento_Emple" : "Antioquia",
+    "municipio_Emple": "Bello",
+    "direccion_Emple": "Calle 123",
+    "telefono_Emple": "123456789",
+    "email_Emple"   : "jamilton.prog@gmail.com",
+    "estado_Emple"  : true,
+    "numeroContrato": "1234567"
+
+  }
+]

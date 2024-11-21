@@ -1,0 +1,22 @@
+[
+  {
+    "documento_Usuario" : "123456789", 
+    "esta_Activa" : false,
+    "registro" : { 
+      "fecha_ingreso" : "17 de oct de 2024",
+      "hora_ingreso" : "12:00:00",
+      "fecha_salida" : "17 de oct de 2024",
+      "hora_salida" : "20:00:00"
+    }
+  }, 
+  {
+    "documento_Usuario" : "123456789", 
+    "esta_Activa" : false,
+    "registro" : { 
+      "fecha_ingreso" : "17 de oct de 2024",
+      "hora_ingreso" : "21:00:00",
+      "fecha_salida" : "18 de oct de 2024",
+      "hora_salida" : "6:00:00"
+    }
+  } 
+]

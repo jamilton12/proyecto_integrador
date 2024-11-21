@@ -1,8 +1,19 @@
-// import {usuario} from '../mocks/usuario.JSON'
+import usuario from '../mocks/usuario.JSON' with { type: "json" }
 
-export function validarUsuario() {
-  const USERS = usuario
+export function validarUsuario($usuario, $clave) {
 
-  return USERS
-  
+  let Users = JSON.parse(localStorage.getItem('users')) || usuario
+
+  if (!Users.includes(usuario)) {
+    Users = Users.concat(usuario)
+  }
+
+  const usuarioValido = Users.find(user => user.cedula_Emple === $usuario && user.clave === $clave)
+
+  if (!usuarioValido) {
+    return false
+  }
+
+  return usuarioValido
 }
+

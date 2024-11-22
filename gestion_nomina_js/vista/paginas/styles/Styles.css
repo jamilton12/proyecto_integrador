@@ -615,7 +615,7 @@ main {
 
 .modal-section {
   z-index: 20;
-  display: flex;
+  display: none;
   position: absolute;
   top: 0;
   left: 0;

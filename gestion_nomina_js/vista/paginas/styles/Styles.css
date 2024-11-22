@@ -615,29 +615,32 @@ main {
 
 .modal-section {
   z-index: 20;
-  display: none;
-  position: fixed;
+  display: flex;
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
+  height: max-content;
   background-color: rgba(0, 0, 0, 0.5);
   justify-content: center;
   align-items: center;
-  padding: 40px;
+  padding: 50px;
   transition: opacity 0.3s ease-in-out;
 }
 
 .modal-container {
   display: flex;
   flex-direction: column;
-  width: 100%;
-  height: 100%;
+  min-width: 90%;
+  max-width: 100%;
+  /* width: 100%; */
+  min-height: 100%;
   background-color: var(--white);
   border-radius: 10px;
   padding: 20px;
   gap: 20px;
   position: relative;
+
 }
 
 .modal-close {
@@ -653,6 +656,66 @@ main {
   }
 }
 
+/* modal añadir empleados */
+
+.modal-añadir-empleado {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  gap: 20px;
+
+}
+
+.modal-añadir-empleado-form {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  padding: 20px;
+}
+
+.modal-añadir-empleado-form h3 {
+  grid-column: 1 / 3;
+  padding: 10px;
+  border-bottom: solid 2px var(--main-color);
+  margin: 10px 0;
+}
+
+
+.modal-añadir-empleado-form div {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.modal-añadir-empleado-form label {
+  font-size: 15px;
+  padding: 5px;
+  color: var(--black);
+  opacity: 0.6;
+}
+
+.modal-añadir-empleado-form input {
+  padding: 10px;
+  outline: none;
+  font-size: 1rem;
+  border-radius: 5px;
+  border: solid 1px var(--main-color);
+}
+
+.modal-añadir-empleado-form button {
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  background-color: var(--main-color);
+  color: var(--white);
+  grid-column: 1 / 3;
+  &&:hover {
+    background-color: var(--secondary-color);
+    scale: .9;
+  }
+}
 /* Media queries */
 
 @media (max-width: 470px) {

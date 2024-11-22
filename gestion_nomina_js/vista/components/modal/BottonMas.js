@@ -1,4 +1,4 @@
-export const BottonMas = ({onClick, title}) => {
+export const BottonMas = ({title}) => {
   const $bottonMas = document.createElement('button')
   $bottonMas.classList.add('botton-mas')
   $bottonMas.onclick = abrirModal
@@ -7,7 +7,6 @@ export const BottonMas = ({onClick, title}) => {
 
   return $bottonMas
 }
-
 
 function abrirModal() {
   const $modal = document.querySelector('.modal-section')

@@ -1,9 +1,10 @@
 export const Input = (props) => {
-  const { className, type, name, placeholder = '', value = '', label = '', options } = props
+  const { className , type, name, placeholder = '', value = '', label = '', options } = props
 
   if (type === 'radio') {
     const $div = document.createElement('div')
-    $div.classList.add('input-radio')
+    const $divFromOption = document.createElement('div')
+    $divFromOption.classList.add('input-radio')
     const $label = document.createElement('label')
     $label.innerText = label
     $div.append($label)
@@ -13,12 +14,16 @@ export const Input = (props) => {
       $input.name = name
       $input.placeholder = placeholder
       $input.value = option
+      $input.id = option
       $input.classList.add(className)
-      $div.append($input)
+      $input.required = true
+      $divFromOption.append($input)
       const $label = document.createElement('label')
       $label.innerText = option
-      $div.append($label) 
+      $label.htmlFor = option
+      $divFromOption.append($label) 
     })
+    $div.append($divFromOption)
     return $div 
   }
 
@@ -27,6 +32,7 @@ export const Input = (props) => {
     const $select = document.createElement('select')
     $select.name = name
     $select.classList.add(className)
+    $select.required = true
     const $label = document.createElement('label')
     $label.innerText = label
     $div.append($label)
@@ -49,6 +55,7 @@ export const Input = (props) => {
     $input.name = name
     $input.placeholder = placeholder
     $input.value = value
+    $input.required = true
     $input.classList.add(className)
     $div.append($label)
     $div.append($input)

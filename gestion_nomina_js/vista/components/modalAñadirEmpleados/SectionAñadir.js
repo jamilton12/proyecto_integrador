@@ -48,15 +48,14 @@ export const SectionAñadirEmpleados = () => {
     $form.append($input)
   }) 
 
-
   const div = document.createElement('div')
 
-  
   const $button = document.createElement('button')
   $button.type = 'submit'
   $button.innerText = 'Agregar Empleado'
   
   div.append($button)
+  div.classList.add('modal-añadir-empleado-button')
   $form.append(div)
   $section.append($form)
   submitForm($form)

@@ -701,21 +701,41 @@ main {
   border-radius: 5px;
   border: solid 1px var(--main-color);
 }
-
+.modal-añadir-empleado-form .input-radio {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
 .modal-añadir-empleado-form button {
   padding: 10px;
   border-radius: 5px;
+  width: 450px;
+  height: 100%;
   border: none;
   outline: none;
   cursor: pointer;
   background-color: var(--main-color);
   color: var(--white);
-  grid-column: 1 / 3;
   &&:hover {
     background-color: var(--secondary-color);
-    scale: .9;
+    scale: 1.1;
   }
 }
+.modal-añadir-empleado-button {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  grid-column: 1/ 3;
+}
+
+.modal-añadir-empleado-form select {
+  padding: 10px;
+  outline: none;
+  font-size: 1rem;
+  border-radius: 5px;
+  border: solid 1px var(--main-color);
+}
+
 /* Media queries */
 
 @media (max-width: 470px) {

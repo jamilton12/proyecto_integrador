@@ -1,0 +1,9 @@
+[
+  {
+    "documento_Usuario" : "123456789", 
+    "esta_Activa" : false,
+    "Siclo_Nomina" : 1,
+    "fecha_inicio" : "17 de oct de 2024",
+    "fecha_fin" : "17 de oct de 2024"
+  }
+]

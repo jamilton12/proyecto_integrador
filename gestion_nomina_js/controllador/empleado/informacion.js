@@ -1,6 +1,6 @@
 import Empleados from "../../modelo/mocks/Empleados.JSON" with { type: "json" }
 
-let listaEmpleados = JSON.parse(localStorage.getItem('Empleados')) || []
+let listaEmpleados = JSON.parse(localStorage.getItem('empleados')) || []
 
 if (!listaEmpleados.includes(Empleados)) {
   listaEmpleados = listaEmpleados.concat(Empleados)

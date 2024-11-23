@@ -19,7 +19,7 @@ import com.javaproyecto.proyecto_integrador.repositories.EmpleadosRepository;
 
 
 @RestController
-@RequestMapping("/api/contratoEmpleados")
+@RequestMapping("/api/empleados")
 public class EmpleadosController {
     
     @Autowired

@@ -61,6 +61,8 @@ export function añadirEmpleado({
     pago_Hora,
     fecha_Inicio,
     fecha_Fin,
+    caja_comp,
+    Eps,
     activo : true
   }
 

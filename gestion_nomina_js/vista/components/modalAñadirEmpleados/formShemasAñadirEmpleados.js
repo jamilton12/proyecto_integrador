@@ -125,12 +125,24 @@ export const shemaFormContrato = [
   {
     name: 'tipo_Contrato',
     placeholder: 'Tipo del Contrato',
-    type : 'text'
+    type : 'select',
+    options : ['Obra labor', 'Termino indefinido', 'Termino fijo', 'Prestacion de servicios']
   },
   {
     name: 'pago_Hora',
     placeholder: 'Pago por Hora',
     type : 'text'
+  },
+  {
+    name : 'Eps',
+    placeholder: 'EPS',
+    type: 'select',
+    options: ['SURA', 'Nueva EPS', 'Sabia Salud']
+  },
+  {
+    name: 'caja_comp',
+    placeholder: 'Caja de compensacion',
+    options :['colpenciones', 'porvenir', 'Cofenalco', 'Comfama']
   },
   {
     name: 'fecha_Inicio',

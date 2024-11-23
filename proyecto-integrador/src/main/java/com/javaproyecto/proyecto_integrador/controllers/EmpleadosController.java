@@ -59,7 +59,7 @@ public class EmpleadosController {
         existingEmpleados.setApellidosEmple(empleados.getApellidosEmple());
         existingEmpleados.setCargoEmple(empleados.getCargoEmple());
         existingEmpleados.setEdadEmplpe(empleados.getEdadEmplpe());
-        existingEmpleados.setSexo(empleados.getSexo());
+        existingEmpleados.setSexoEmple(empleados.getSexoEmple());
         existingEmpleados.setPaisEmple(empleados.getPaisEmple());
         existingEmpleados.setDepartamentoEmple(empleados.getDepartamentoEmple());
         existingEmpleados.setMunicipoioEmple(empleados.getMunicipoioEmple());

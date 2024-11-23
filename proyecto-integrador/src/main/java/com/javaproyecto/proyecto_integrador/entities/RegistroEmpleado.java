@@ -16,47 +16,37 @@ public class RegistroEmpleado {
     private Date fechaSALReg;
     private Double horaENReg;
 	private Double horaSALReg; 
-     
+    
     public RegistroEmpleado() {
     }
-
-    public long getIdRge(){
+    public long getIdReg() {
         return idReg;
     }
-
-    public void setIdReg(long idRerg) {
+    public void setIdReg(long idReg) {
         this.idReg = idReg;
     }
-
-    public Date getFechaINReg(){
+    public Date getFechaINReg() {
         return fechaINReg;
     }
-
-    public void setFechaINReg(Date fechaINReg){
+    public void setFechaINReg(Date fechaINReg) {
         this.fechaINReg = fechaINReg;
     }
-
-    public Date getFechaSAlReg(){
-        return fechaSAlReg;
+    public Date getFechaSAlReg() {
+        return fechaSALReg;
     }
-
-    public void setFechaSAlReg(Date fechaSAlReg){
-        this.fechaSAlReg = fechaSAlReg;
+    public void setFechaSAlReg(Date fechaSAlReg) {
+        this.fechaSALReg = fechaSAlReg;
     }
-
-    public double getHoraENReg(){
+    public Double getHoraENReg() {
         return horaENReg;
     }
-
-    public void setHoraENReg(double horaENReg){
+    public void setHoraENReg(Double horaENReg) {
         this.horaENReg = horaENReg;
     }
-
-    public double HoraSALReg(){
+    public Double getHoraSALReg() {
         return horaSALReg;
     }
-
-    public void setHoraSALReg(double horaSALReg){
+    public void setHoraSALReg(Double horaSALReg) {
         this.horaSALReg = horaSALReg;
     }
 }

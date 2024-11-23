@@ -99,17 +99,22 @@ public class Empleados {
     public void setEmailEmple(String emailEmple) {
         this.emailEmple = emailEmple;
     }
-    public String getActivo(){
-        return activo;
-    }
-    public void setActivo(String activo){
-        this.activo = activo;
-    }
+
     public String getNumeroContrato() {
         return numeroContrato;
     }
     public void setNumeroContrato(String numeroContrato) {
         this.numeroContrato = numeroContrato;
+    }
+
+
+    public void setActivo(Boolean activo) {
+        this.activo = activo;
+    }
+
+
+    public Boolean getActivo() {
+        return activo;
     } 
     
     

@@ -13,12 +13,14 @@ public class Empleados {
     private String apellidosEmple;
     private String cargoEmple;
     private int edadEmplpe;
+    private String sexoEmple;
     private String paisEmple; 
     private String departamentoEmple; 
     private String municipoioEmple; 
     private String direccionEmple; 
     private String numeroTelEmple; 
     private String emailEmple; 
+    private Boolean activo; 
     private String numeroContrato;
 
     public Empleados() {
@@ -55,6 +57,12 @@ public class Empleados {
     public void setEdadEmplpe(int edadEmplpe) {
         this.edadEmplpe = edadEmplpe;
     }
+    public String getSexoEmple(){
+        return sexoEmple;
+    }
+    public void setSexoEmple( String sexoEmple) {
+        this.sexoEmple = sexoEmple;
+    }
     public String getPaisEmple() {
         return paisEmple;
     }
@@ -90,6 +98,12 @@ public class Empleados {
     }
     public void setEmailEmple(String emailEmple) {
         this.emailEmple = emailEmple;
+    }
+    public String getActivo(){
+        return activo;
+    }
+    public void setActivo(String activo){
+        this.activo = activo;
     }
     public String getNumeroContrato() {
         return numeroContrato;

@@ -142,6 +142,7 @@ export const shemaFormContrato = [
   {
     name: 'caja_comp',
     placeholder: 'Caja de compensacion',
+    type : 'select',
     options :['colpenciones', 'porvenir', 'Cofenalco', 'Comfama']
   },
   {

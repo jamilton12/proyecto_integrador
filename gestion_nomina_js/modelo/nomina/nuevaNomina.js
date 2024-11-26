@@ -1,7 +1,7 @@
 const fecha = new Date()
 let fechaActual = fecha.toLocaleDateString('es-CO', { year: 'numeric', month: 'short', day: 'numeric' })
 
-function nuevaNomina() {
+export function nuevaNomina() {
   let nomina = JSON.parse(localStorage.getItem('nomina')) || []
   
   const lastNomina = nomina[nomina.length - 1]
@@ -18,8 +18,7 @@ function nuevaNomina() {
     valor_Nomina: 0
   }
 
-  if (nomina.length === 0 || lastNomina.esta_Activa === true) {
-    lastNomina.esta_Activa = false
+  if (nomina.length === 0 || lastNomina.esta_Activa === false) {
     nomina.push(newNomina)
     
     localStorage.setItem('nomina', JSON.stringify(nomina))

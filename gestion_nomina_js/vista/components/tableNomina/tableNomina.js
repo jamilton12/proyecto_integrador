@@ -1,3 +1,4 @@
+import { traerNomina } from "../../../controllador/nomina/nomina.js"
 import { traerRegistros } from "../../../controllador/nomina/registros.js"
 import { Table } from "../table/Table.js"
 import { TableBody } from "../table/TableBody.js"
@@ -15,13 +16,14 @@ const tableNominaHeader = [
   "Nomina neta",
   "Descuentos por salud",
   "Descuentos por pension",
-  "Nomina Actual",
+  "Nomina",
 ]
 
 const user = JSON.parse(localStorage.getItem('login_success'))
 
 export const TableNomina = () => {
   const { nomina, totalHoras, netoNomina, descuentoSalud, descuentoPension, diasTrabajados } = traerRegistros(user)
+  const nominas = traerNomina()
   const $headers = tableNominaHeader.map((header) => {
     return TableElementHeader({
       className: 'nomina-table-cell',
@@ -43,8 +45,8 @@ export const TableNomina = () => {
     className: 'nomina-table-row',
     childrens: [
       TableElement({ className: 'nomina-table-cell', children: user.cedula_Emple }),
-      TableElement({ className: 'nomina-table-cell', children: '' }),
-      TableElement({ className: 'nomina-table-cell', children: '' }),
+      TableElement({ className: 'nomina-table-cell', children: nominas[0].fecha_inicio }),
+      TableElement({ className: 'nomina-table-cell', children: nominas[0].fecha_fin }),
       TableElement({ className: 'nomina-table-cell', children: diasTrabajados }),
       TableElement({ className: 'nomina-table-cell', children: netoNomina }),
       TableElement({ className: 'nomina-table-cell', children: descuentoSalud }),

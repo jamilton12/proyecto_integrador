@@ -6,8 +6,8 @@ export function nomina() {
   let nomina = JSON.parse(localStorage.getItem('nomina')) || []
 
   let allNomina = [...Nomina, ...nomina,]
-
-  let nominaUser = allNomina.filter(nomina => nomina.documento_Usuario === cedula_Emple)
-
+  
+  let nominaUser = allNomina.filter((nomina) => {return nomina.documento_Emple === cedula_Emple})
+  
   return nominaUser
 }

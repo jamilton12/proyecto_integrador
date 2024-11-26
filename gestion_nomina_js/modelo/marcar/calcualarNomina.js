@@ -1,6 +1,6 @@
 import { traerContratos } from "../../controllador/contrato/contrato.js"
 import { registros } from "../nomina/Registros.js"
-
+import { actualizarNomina } from "../../controllador/nomina/nomina.js"
 export function calcularDiferencia(registroActual) {
   let {registro : {fecha_ingreso, hora_ingreso, fecha_salida, hora_salida}} = registroActual
   
@@ -41,6 +41,6 @@ export function calcularNomina() {
   let descuentoPension = (netoNomina * 4)/100
   let nomina = netoNomina - descuentoSalud - descuentoPension
 
-
+  actualizarNomina(nomina, descuentoSalud, descuentoPension)
   return {nomina, totalHoras, netoNomina, descuentoSalud, descuentoPension, diasTrabajados}
 }

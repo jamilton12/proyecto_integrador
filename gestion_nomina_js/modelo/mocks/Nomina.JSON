@@ -1,9 +1,13 @@
 [
   {
-    "documento_Usuario" : "123456789", 
+    "documento_Emple" : "123456789", 
+    "numero_Comprobante" : "3245678",
     "esta_Activa" : false,
     "Siclo_Nomina" : 1,
-    "fecha_inicio" : "17 de oct de 2024",
-    "fecha_fin" : "17 de oct de 2024"
+    "fecha_inicio" : "15 de oct de 2024",
+    "fecha_fin" : "30 de oct de 2024",
+    "descuento_Salud" : 0,
+    "descuento_Pension" : 0,
+    "valor_Nomina" : 0
   }
 ]

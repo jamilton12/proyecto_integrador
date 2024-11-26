@@ -1,4 +1,4 @@
-import { lastRegistro } from "../../../controllador/nomina/Nomina.js"
+import { lastRegistro } from "../../../controllador/nomina/registros.js"
 import { LOCATION, PATH } from "../../../utils/const.js"
 
 const navList = [

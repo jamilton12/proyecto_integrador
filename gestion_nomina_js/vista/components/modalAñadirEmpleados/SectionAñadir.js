@@ -1,7 +1,7 @@
 import { ShemaForm, shemaFormFamiliar, shemaFormContrato } from "./formShemasAñadirEmpleados.js"
 import { Input } from "../input/Input.js"
-import { TitulosInformacion } from "./TitulosInformacion.js"
 import { añadirEmpleado } from "../../../controllador/usuario/añadirEmpleado.js"
+import { TitleSection } from "../titleSection/TitleSection.js"
 export const SectionAñadirEmpleados = () => {
   const $section = document.createElement('section')
   $section.classList.add('modal-añadir-empleado-section')
@@ -11,7 +11,7 @@ export const SectionAñadirEmpleados = () => {
   $form.name = 'addEmpleado'
   $form.method = 'post'
 
-  const $titleEmpleado = TitulosInformacion({children: 'Información Del Empleado'})
+  const $titleEmpleado = TitleSection({children: 'Información Del Empleado'})
   $form.append($titleEmpleado)
 
   ShemaForm.map((input) =>{
@@ -24,7 +24,7 @@ export const SectionAñadirEmpleados = () => {
       $form.append($input)
     }) 
 
-  const $titleFamiliar = TitulosInformacion({children: 'Información Familiar'})
+  const $titleFamiliar = TitleSection({children: 'Información Familiar'})
   $form.append($titleFamiliar)
   shemaFormFamiliar.map((input) =>{
     const $input = Input({
@@ -35,7 +35,7 @@ export const SectionAñadirEmpleados = () => {
     })
     $form.append($input)
   }) 
-  const $titleContrato = TitulosInformacion({children: 'Información de Contrato'})
+  const $titleContrato = TitleSection({children: 'Información de Contrato'})
   $form.append($titleContrato)
 
   shemaFormContrato.map((input) =>{

@@ -5,14 +5,13 @@ import { TableBody } from "../table/TableBody.js"
 import { TableColum } from "../table/TableColum.js"
 import { TableElement } from "../table/TableElement.js"
 import { TableElementHeader } from "../table/TableElementHeader.js"
-import { TableFoot } from "../table/TableFoot.js"
 import { TableHeader } from "../table/TableHeader.js"
 
 const tableNominaHeader = [
   "Cedula",
   "Fecha inicio de nomina",
   "Fecha fin de nomina",
-  "Horas Tabajadas",
+  "Dias Tabajados",
   "Nomina neta",
   "Descuentos por salud",
   "Descuentos por pension",
@@ -48,10 +47,10 @@ export const TableNomina = () => {
       TableElement({ className: 'nomina-table-cell', children: nominas[0].fecha_inicio }),
       TableElement({ className: 'nomina-table-cell', children: nominas[0].fecha_fin }),
       TableElement({ className: 'nomina-table-cell', children: diasTrabajados }),
-      TableElement({ className: 'nomina-table-cell', children: netoNomina }),
-      TableElement({ className: 'nomina-table-cell', children: descuentoSalud }),
-      TableElement({ className: 'nomina-table-cell', children: descuentoPension }),
-      TableElement({ className: 'nomina-table-cell', children: nomina }),
+      TableElement({ className: 'nomina-table-cell', children: '$' + netoNomina }),
+      TableElement({ className: 'nomina-table-cell', children: '$' + descuentoSalud }),
+      TableElement({ className: 'nomina-table-cell', children: '$' + descuentoPension }),
+      TableElement({ className: 'nomina-table-cell', children: '$' + nomina }),
     ]
   })]
 

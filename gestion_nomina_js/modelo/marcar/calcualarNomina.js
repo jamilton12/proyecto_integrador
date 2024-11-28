@@ -1,5 +1,5 @@
 import { traerContratos } from "../../controllador/contrato/contrato.js"
-import { registros } from "../nomina/Registros.js"
+import { registros } from "../nomina/registros.js"
 import { actualizarNomina } from "../../controllador/nomina/nomina.js"
 export function calcularDiferencia(registroActual) {
   let {registro : {fecha_ingreso, hora_ingreso, fecha_salida, hora_salida}} = registroActual

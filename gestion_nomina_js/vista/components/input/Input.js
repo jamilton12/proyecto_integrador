@@ -1,22 +1,30 @@
 export const Input = (props) => {
-  const { className , type, name, placeholder = '', value = '', label = '', options } = props
+  const { className , type, name, placeholder = '', value = '', label = '', options, disabled } = props
+  const $div = document.createElement('div')
+  $div.classList.add('input-container')
+  const $label = document.createElement('label')
+  const $input = document.createElement('input')
+
 
   if (type === 'radio') {
-    const $div = document.createElement('div')
     const $divFromOption = document.createElement('div')
     $divFromOption.classList.add('input-radio')
-    const $label = document.createElement('label')
     $label.innerText = label
     $div.append($label)
     options.map((option) => {
       const $input = document.createElement('input')
+      if (value === option) {
+        $input.checked = true
+      }
       $input.type = type
       $input.name = name
       $input.placeholder = placeholder
       $input.value = option
       $input.id = option
+      $input.classList.add('input-radio')
       $input.classList.add(className)
       $input.required = true
+      $input.disabled = disabled 
       $divFromOption.append($input)
       const $label = document.createElement('label')
       $label.innerText = option
@@ -28,16 +36,19 @@ export const Input = (props) => {
   }
 
   if (type === 'select') {
-    const $div = document.createElement('div')
     const $select = document.createElement('select')
     $select.name = name
     $select.classList.add(className)
+    $select.classList.add('input-select')
     $select.required = true
-    const $label = document.createElement('label')
+    $select.disabled = disabled
     $label.innerText = label
     $div.append($label)
     options.map((option) => {
       const $option = document.createElement('option')
+      if (value === option) {
+        $option.selected = true
+      }
       $option.value = option
       $option.innerText = option
       $select.append($option)
@@ -46,17 +57,15 @@ export const Input = (props) => {
     return $div
   }
 
-    const $input = document.createElement('input')
-    const $label = document.createElement('label')
-    const $div = document.createElement('div')
-    
     $label.innerText = label
     $input.type = type
     $input.name = name
     $input.placeholder = placeholder
     $input.value = value
     $input.required = true
+    $input.disabled = disabled 
     $input.classList.add(className)
+    $input.classList.add('input')
     $div.append($label)
     $div.append($input)
 

@@ -1,5 +1,5 @@
 import { calcularDiferencia, calcularNomina } from '../../modelo/marcar/calcualarNomina.js'
-import { registros } from '../../modelo/nomina/Registros.js'
+import { registros } from '../../modelo/nomina/registros.js'
 
 const listaRegistros = registros()
 

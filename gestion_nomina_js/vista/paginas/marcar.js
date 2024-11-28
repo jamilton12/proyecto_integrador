@@ -5,6 +5,7 @@ export default function Marcar() {
   const { esta_Activa } = lastRegistro()
   const islastRegistro = esta_Activa ? 'Salida' : 'Ingreso'
   const $mian = document.createElement('main')
+  $mian.classList.add('marcar-main')
 
   const $section = document.createElement('section')
   $section.classList.add('marcar-section')

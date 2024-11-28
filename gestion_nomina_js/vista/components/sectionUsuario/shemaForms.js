@@ -1,8 +1,11 @@
+import { traerContratos } from "../../../controllador/contrato/contrato.js"
 import { traerEmpleadoActual } from "../../../controllador/empleado/informacion.js"
+import { traerFamiliares } from "../../../controllador/familiar/familiar.js"
 let user = JSON.parse(localStorage.getItem('login_success'))
 
 let empleado = traerEmpleadoActual(user)
-
+let contrato = traerContratos()
+let familiares = traerFamiliares()
 export const ShemaFormInformacion = [
   {
     name: 'cedula_Emple',
@@ -86,5 +89,92 @@ export const ShemaFormInformacion = [
     placeholder: 'Email del Empleado',
     type : 'email',
     value : empleado.email_Emple
+  },
+]
+
+export const shemaFormInfoFamiliar = [
+  {
+    name : 'documento_Familiar',
+    placeholder: 'Documento del Familiar',
+    type : 'text',
+    value : familiares[0].documento_Familiar
+  },
+  {
+    name: 'parentesco',
+    placeholder: 'Parentesco del Familiar',
+    type : 'text',
+    value : familiares[0].parentesco
+  },
+  {
+    name: 'nombre_Familiar', 
+    placeholder: 'Nombre del Familiar',
+    type : 'text',
+    value : familiares[0].nombre_Familiar
+  },
+  {
+    name: 'apellidos_Familiar',
+    placeholder: 'Apellidos del Familiar',
+    type : 'text',
+    value : familiares[0].apellidos_Familiar
+  },
+  {
+    name: 'telefono_Familiar',
+    placeholder: 'Telefono del Familiar',
+    type : 'text',
+    value : familiares[0].telefono_Familiar
+  },
+  {
+    name: 'email_Familiar',
+    placeholder: 'Email del Familiar',
+    type : 'email',
+    value : familiares[0].email_Familiar
+  },
+]
+
+export const shemaFormInfoContrato = [
+  {
+    name: 'numero_Contrato',
+    placeholder: 'Numero del Contrato',
+    type : 'text',
+    value : contrato[0].numero_Contrato
+  },
+  {
+    name: 'tipo_Contrato',
+    placeholder: 'Tipo del Contrato',
+    type : 'select',
+    options : ['Obra labor', 'Termino indefinido', 'Termino fijo', 'Prestacion de servicios'],
+    value : contrato[0].tipo_Contrato
+  },
+  {
+    name: 'pago_Hora',
+    placeholder: 'Pago por Hora',
+    type : 'text',
+    value : contrato[0].pago_Hora
+  },
+  {
+    name : 'Eps',
+    placeholder: 'EPS',
+    type: 'select',
+    options: ['SURA', 'Nueva EPS', 'Sabia Salud'],
+    value : contrato[0].Eps
+  },
+  {
+    name: 'caja_comp',
+    placeholder: 'Caja de compensacion',
+    type : 'select',
+    options :['colpenciones', 'porvenir', 'Cofenalco', 'Comfama'],
+    value : contrato[0].caja_comp
+  },
+  {
+    name: 'fecha_Inicio',
+    placeholder: 'Fecha de Inicio de Contrato',
+    type : 'text',  
+    value : contrato[0].fecha_Inicio
+  },
+  {
+    name: 'fecha_Fin',
+    placeholder : 'Fecha de Fin de Contrato',
+    type : 'text',
+    value : contrato[0].fecha_Fin
   },
 ]

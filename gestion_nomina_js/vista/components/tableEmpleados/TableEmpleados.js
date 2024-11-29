@@ -10,8 +10,8 @@ import { TableHeader } from "../table/TableHeader.js"
 
 const tableNominaHeader = [
   "Id",
-  "Nombre empleado",
-  "Apellido empleado",
+  "Nombre Completo",
+  "Cargo",
   "Numero Horas Totale",
   "Nomina Actual",
 
@@ -39,15 +39,15 @@ export const TableEmpleados = (props) => {
   })
 
   const $tableColumns = empleados.map((empleado) => {
-    const { cedula_Emple, nombre_Emple, apellido_Emple } = empleado
+    const { cedula_Emple, nombre_Emple, apellido_Emple, cargo_Emple } = empleado
     const { nomina, totalHoras } = traerRegistros(empleado)
 
     return TableColum({
       className: 'nomina-table-row',
       childrens: [
         TableElement({ className: 'nomina-table-cell', children: cedula_Emple }),
-        TableElement({ className: 'nomina-table-cell', children: nombre_Emple }),
-        TableElement({ className: 'nomina-table-cell', children: apellido_Emple }),
+        TableElement({ className: 'nomina-table-cell', children: nombre_Emple + ' ' + apellido_Emple }),
+        TableElement({ className: 'nomina-table-cell', children: cargo_Emple }),
         TableElement({ className: 'nomina-table-cell', children: totalHoras }),
         TableElement({ className: 'nomina-table-cell', children: nomina }),
       ]

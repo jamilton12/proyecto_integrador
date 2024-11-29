@@ -17,8 +17,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.javaproyecto.proyecto_integrador.entities.Familiar;
 import com.javaproyecto.proyecto_integrador.repositories.FamiliarRepository;
 
-
-
 @RestController
 @RequestMapping("/api/familiar")
 

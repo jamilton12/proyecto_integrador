@@ -1,21 +1,26 @@
-import registrosJson from '../../modelo/mocks/registros.JSON' with { type: "json" }
-import { calcularDiferencia, calcularNomina } from '../../modelo/marcar/calcualarNomina.js'
-
-
-let registros = JSON.parse(localStorage.getItem('registros')) || []
-let allRegistros = [...registrosJson, ...registros,]
-
-export function traerNomina(user) {
-  const NewRegistros = allRegistros.filter(registro => registro.documento_Usuario === user.cedula_Emple)
-  const diferencias = NewRegistros.map(registro => calcularDiferencia(registro))
-  const { nomina, totalHoras } = calcularNomina()
-
-  return { nomina, totalHoras, registros: NewRegistros, diferencias }
+import { nomina } from "../../modelo/nomina/nomina.js"
+import { nuevaNomina } from "../../modelo/nomina/nuevaNomina.js"
+export function traerNomina() {
+  let listaNomina = nomina()
+  
+  return listaNomina
 }
+export function actualizarNomina(valor_Nomina, descuentoSalud, descuentoPension) {
+  let fecha = new Date()
+  let fechaActual = fecha.toLocaleDateString('es-CO', { year: 'numeric', month: 'short', day: 'numeric' })
 
+  let listaNomina = traerNomina()
+  let lastNomina = listaNomina[listaNomina.length - 1]
 
-
-export function lastRegistro() {
-  const registro = allRegistros[allRegistros.length - 1]
-  return registro
+  if (lastNomina.esta_Activa === true && lastNomina.fecha_fin === fechaActual) {
+    lastNomina.esta_Activa = false
+    lastNomina.descuentoPension = descuentoPension
+    lastNomina.descuentoSalud = descuentoSalud
+    lastNomina.valor_Nomina = valor_Nomina
+    listaNomina[listaNomina.length - 1] = lastNomina
+    localStorage.setItem('nomina', JSON.stringify(listaNomina))
+    nuevaNomina()
+  }else {
+    return
+  }
 }

@@ -1,26 +1,28 @@
-import { traerNomina } from "../../../controllador/nomina/Nomina.js"
+import { traerNomina } from "../../../controllador/nomina/nomina.js"
+import { traerRegistros } from "../../../controllador/nomina/registros.js"
 import { Table } from "../table/Table.js"
 import { TableBody } from "../table/TableBody.js"
 import { TableColum } from "../table/TableColum.js"
 import { TableElement } from "../table/TableElement.js"
 import { TableElementHeader } from "../table/TableElementHeader.js"
-import { TableFoot } from "../table/TableFoot.js"
 import { TableHeader } from "../table/TableHeader.js"
 
-
 const tableNominaHeader = [
-  "Id",
-  "FechaIngreso",
-  "HoraIngreso",
-  "FechaSalida",
-  "HoraSalida",
-  "HorasTrabajadas",
+  "Cedula",
+  "Fecha inicio de nomina",
+  "Fecha fin de nomina",
+  "Dias Tabajados",
+  "Nomina neta",
+  "Descuentos por salud",
+  "Descuentos por pension",
+  "Nomina",
 ]
 
 const user = JSON.parse(localStorage.getItem('login_success'))
 
-export const tableNomina = () => {
-  const { nomina, totalHoras, registros, diferencias } = traerNomina(user)
+export const TableNomina = () => {
+  const { nomina, totalHoras, netoNomina, descuentoSalud, descuentoPension, diasTrabajados } = traerRegistros(user)
+  const nominas = traerNomina()
   const $headers = tableNominaHeader.map((header) => {
     return TableElementHeader({
       className: 'nomina-table-cell',
@@ -38,21 +40,19 @@ export const tableNomina = () => {
     children: $columnHeaders
   })
 
-  const $tableColumns = registros.map((registro) => {
-    const { registro: { fecha_ingreso, hora_ingreso, fecha_salida, hora_salida }, documento_Usuario } = registro
-
-    return TableColum({
-      className: 'nomina-table-row',
-      childrens: [
-        TableElement({ className: 'nomina-table-cell', children: documento_Usuario }),
-        TableElement({ className: 'nomina-table-cell', children: fecha_ingreso }),
-        TableElement({ className: 'nomina-table-cell', children: hora_ingreso }),
-        TableElement({ className: 'nomina-table-cell', children: fecha_salida }),
-        TableElement({ className: 'nomina-table-cell', children: hora_salida }),
-        TableElement({ className: 'nomina-table-cell', children: diferencias[registros.indexOf(registro)] }),
-      ]
-    })
-  })
+  const $tableColumns = [TableColum({
+    className: 'nomina-table-row',
+    childrens: [
+      TableElement({ className: 'nomina-table-cell', children: user.cedula_Emple }),
+      TableElement({ className: 'nomina-table-cell', children: nominas[0].fecha_inicio }),
+      TableElement({ className: 'nomina-table-cell', children: nominas[0].fecha_fin }),
+      TableElement({ className: 'nomina-table-cell', children: diasTrabajados }),
+      TableElement({ className: 'nomina-table-cell', children: '$' + netoNomina }),
+      TableElement({ className: 'nomina-table-cell', children: '$' + descuentoSalud }),
+      TableElement({ className: 'nomina-table-cell', children: '$' + descuentoPension }),
+      TableElement({ className: 'nomina-table-cell', children: '$' + nomina }),
+    ]
+  })]
 
   const $tBody = TableBody({
     className: 'nomina-table-body',
@@ -69,15 +69,11 @@ export const tableNomina = () => {
     ]
   })
 
-  const $tFoot = TableFoot({
-    className: 'nomina-table-head',
-    childrens: [$tFootColumn]
-  })
 
   const $table = Table(
     {
-      className: 'nomina-table',
-      childrens: [$tableHeaders, $tBody, $tFoot]
+      // className: 'nomina-table',
+      childrens: [$tableHeaders, $tBody]
     }
   )
   return $table

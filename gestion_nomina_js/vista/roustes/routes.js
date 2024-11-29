@@ -33,7 +33,8 @@ export const routes = [
   },
   {
     path: PATH.USUARIO,
-    component: Usuario
+    component: Usuario,
+    title: 'Empleado'
   },
   {
     path: PATH.ERROR,

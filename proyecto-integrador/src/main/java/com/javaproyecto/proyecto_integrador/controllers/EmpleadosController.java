@@ -19,7 +19,7 @@ import com.javaproyecto.proyecto_integrador.repositories.EmpleadosRepository;
 
 
 @RestController
-@RequestMapping("/api/contratoEmpleados")
+@RequestMapping("/api/empleados")
 public class EmpleadosController {
     
     @Autowired
@@ -59,6 +59,7 @@ public class EmpleadosController {
         existingEmpleados.setApellidosEmple(empleados.getApellidosEmple());
         existingEmpleados.setCargoEmple(empleados.getCargoEmple());
         existingEmpleados.setEdadEmplpe(empleados.getEdadEmplpe());
+        existingEmpleados.setSexoEmple(empleados.getSexoEmple());
         existingEmpleados.setPaisEmple(empleados.getPaisEmple());
         existingEmpleados.setDepartamentoEmple(empleados.getDepartamentoEmple());
         existingEmpleados.setMunicipoioEmple(empleados.getMunicipoioEmple());

@@ -1,10 +1,11 @@
-import { lastRegistro } from "../../controllador/nomina/Nomina.js"
+import { lastRegistro } from "../../controllador/nomina/registros.js"
 import { marcarIngreso, marcarSalida } from "../../controllador/nomina/registroInOut.js"
 
 export default function Marcar() {
-  const {esta_Activa} = lastRegistro()
+  const { esta_Activa } = lastRegistro()
   const islastRegistro = esta_Activa ? 'Salida' : 'Ingreso'
   const $mian = document.createElement('main')
+  $mian.classList.add('marcar-main')
 
   const $section = document.createElement('section')
   $section.classList.add('marcar-section')
@@ -21,8 +22,8 @@ export default function Marcar() {
 export function marcar() {
   const registroActual = lastRegistro()
   const on = !registroActual.esta_Activa
-  console.log(registroActual,on);
-  
+  console.log(registroActual, on);
+
   if (on) {
     marcarIngreso()
   } else {

@@ -1,0 +1,11 @@
+[
+  {
+    "cedula_Emple" : "123456789", 
+    "documento_Familiar" : "1234567",
+    "parentesco" : "Padre",
+    "nombre_Familiar" : "Jhon",
+    "apellidos_Familiar" : "Doe",
+    "telefono_Familiar" : "1234567",
+    "email_Familiar" : "4bXfD@example.com"
+  }
+]

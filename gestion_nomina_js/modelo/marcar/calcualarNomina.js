@@ -1,5 +1,6 @@
-import registrosJson from "../../modelo/mocks/registros.JSON" with { type: "json" }
-
+import { traerContratos } from "../../controllador/contrato/contrato.js"
+import { registros } from "../nomina/registros.js"
+import { actualizarNomina } from "../../controllador/nomina/nomina.js"
 export function calcularDiferencia(registroActual) {
   let {registro : {fecha_ingreso, hora_ingreso, fecha_salida, hora_salida}} = registroActual
   
@@ -8,6 +9,12 @@ export function calcularDiferencia(registroActual) {
   }else {
     return (24 - parseInt(hora_ingreso) + parseInt(hora_salida))
   }
+}
+
+function calcularDiasTrabajados(horasTrabajadas) {
+  let diasTrabajados = Math.floor(horasTrabajadas / 8)
+
+  return diasTrabajados
 }
 
 
@@ -22,17 +29,18 @@ function calcularTotalHoras(registros) {
 }
 
 export function calcularNomina() {
-  const user = JSON.parse(localStorage.getItem('login_success'))
-  const { cedula_Emple } = user
-  const pago  = 5000
-  let registros = JSON.parse(localStorage.getItem('registros')) || []
+  const contrato = traerContratos() 
+  const pago  = contrato[contrato.length - 1].pago_Hora
 
-  registros = registros.concat(registrosJson)
+  let listaRegistros = registros()
 
-  let registrosUser = registros.filter(registro => registro.documento_Usuario === cedula_Emple)
+  let totalHoras = calcularTotalHoras(listaRegistros)
+  let netoNomina = totalHoras * pago
+  let diasTrabajados = calcularDiasTrabajados(totalHoras)
+  let descuentoSalud = (netoNomina * 4)/100
+  let descuentoPension = (netoNomina * 4)/100
+  let nomina = netoNomina - descuentoSalud - descuentoPension
 
-  let totalHoras = calcularTotalHoras(registrosUser)
-  let nomina = totalHoras * pago
-
-  return {nomina, totalHoras}
+  actualizarNomina(nomina, descuentoSalud, descuentoPension)
+  return {nomina, totalHoras, netoNomina, descuentoSalud, descuentoPension, diasTrabajados}
 }

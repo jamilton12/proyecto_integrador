@@ -5,7 +5,7 @@
     "apellido_Emple": "Hoyos Perez",
     "UrlFoto_Emple": "/gestion_nomina_js/vista/assets/foto_ususario.jpg",
     "cargo_Emple"   : "Programador",
-    "edad_Emple"    : 25,
+    "fechaNacimiento_Emple"    : "25/05/2000",
     "sexo_Emple"    : "Masculino",
     "pais_Emple"    : "Colombia",
     "ciudad_Emple"  : "Medellin",
@@ -15,7 +15,6 @@
     "telefono_Emple": "123456789",
     "email_Emple"   : "jamilton.prog@gmail.com",
     "estado_Emple"  : true,
-    "numeroContrato": "1234567"
-
+    "numero_Contrato": "1234567"
   }
 ]

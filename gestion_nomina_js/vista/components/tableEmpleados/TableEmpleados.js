@@ -5,7 +5,6 @@ import { TableBody } from "../table/TableBody.js"
 import { TableColum } from "../table/TableColum.js"
 import { TableElement } from "../table/TableElement.js"
 import { TableElementHeader } from "../table/TableElementHeader.js"
-import { TableFoot } from "../table/TableFoot.js"
 import { TableHeader } from "../table/TableHeader.js"
 
 const tableNominaHeader = [

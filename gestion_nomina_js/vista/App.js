@@ -4,7 +4,6 @@ import { LOCATION, PATH } from "../utils/const.js"
 import { Router } from "./roustes/Router.js"
 export function App() {
   const USER = JSON.parse(localStorage.getItem('login_success'))
-  const $app = document.querySelector('#root')
 
   if (!USER) {
     LOCATION.hash = PATH.INICIO_SESION
